@@ -112,6 +112,41 @@ img{-webkit-user-drag:none;pointer-events:none;}
   .ch-name{font-size:30px;}
   .toc-grid{grid-template-columns:1fr;}
 }
+
+/* wy-cross-nav-css v1 */
+/* ── 跨卷導覽（側欄底部）── */
+.sb-cross{display:flex;flex-direction:column;align-items:center;gap:8px;
+  width:100%;margin:18px 0 4px;padding:18px 4px 6px;position:relative;}
+.sb-cross::before{content:"";position:absolute;top:0;left:14%;right:14%;
+  height:1px;background:linear-gradient(90deg,
+    transparent 0%,rgba(184,134,11,.15) 18%,
+    var(--gold,#b8860b) 50%,
+    rgba(184,134,11,.15) 82%,transparent 100%);
+  box-shadow:0 1px 0 rgba(212,168,75,.18);}
+.sb-cross::after{content:"";position:absolute;top:6px;left:38%;right:38%;
+  height:1px;background:linear-gradient(90deg,
+    transparent,rgba(184,134,11,.55),transparent);}
+.sb-x{display:flex;flex-direction:column;align-items:center;gap:3px;
+  text-decoration:none;color:var(--sbText,#d4c4a8);padding:4px 4px;width:100%;
+  border-radius:7px;transition:all .25s;}
+.sb-x:hover{background:rgba(184,134,11,.14);transform:translateY(-1px);}
+.sb-x-glyph{width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1.2px solid rgba(212,196,168,.55);
+  color:var(--goldL,#d4a84b);font-family:"Noto Sans TC",sans-serif;font-size:14px;
+  background:rgba(184,134,11,.08);transition:all .25s;}
+.sb-x:hover .sb-x-glyph{border-color:var(--gold,#b8860b);color:#fff;
+  background:linear-gradient(135deg,var(--gold,#b8860b),var(--goldL,#d4a84b));
+  box-shadow:0 0 10px rgba(184,134,11,.5);}
+.sb-x-label{font-family:"Noto Sans TC",sans-serif;font-size:10.5px;
+  letter-spacing:1.2px;color:var(--sbText,#d4c4a8);opacity:.78;text-align:center;
+  line-height:1.25;}
+.sb-x:hover .sb-x-label{color:var(--goldL,#d4a84b);opacity:1;}
+.sb-x-hub .sb-x-glyph{background:linear-gradient(135deg,
+  rgba(184,134,11,.22),rgba(212,168,75,.18));
+  border-color:rgba(212,168,75,.55);color:var(--goldL,#d4a84b);font-size:13px;
+  font-weight:700;letter-spacing:1px;}
+
 </style>
 <meta name="wy-full-protection" content="v2-silent">
 <meta name="robots" content="noai,noimageai,noarchive,index">
@@ -219,6 +254,21 @@ img{-webkit-user-drag:none;pointer-events:none;}
 <a class="sb-item" data-ch="4" href="#chapter-4"><span class="sb-circle">四</span><span class="sb-label" data-wytext="nv6mg/frjeHi"></span></a>
 <a class="sb-item" data-ch="5" href="#chapter-5"><span class="sb-circle">五</span><span class="sb-label" data-wytext="ktaLjNnqj/bNnPXW"></span></a>
 </nav>
+  <!-- wy-cross-nav v1 -->
+  <div class="sb-cross">
+    <a class="sb-x" href="https://weiwen0925.github.io/dazhidulun-98/" title="第九十八卷">
+      <span class="sb-x-glyph">←</span>
+      <span class="sb-x-label">卷九十八</span>
+    </a>
+    <a class="sb-x sb-x-hub" href="https://weiwen0925.github.io/dazhidulun-0/" title="大智度論門頁">
+      <span class="sb-x-glyph">智</span>
+      <span class="sb-x-label">門頁</span>
+    </a>
+    <a class="sb-x" href="https://weiwen0925.github.io/dazhidulun-100/" title="第一百卷">
+      <span class="sb-x-glyph">→</span>
+      <span class="sb-x-label">卷一百</span>
+    </a>
+  </div>
 </aside>
 <main class="main">
 <div class="site-hero"><div class="hero-content">
