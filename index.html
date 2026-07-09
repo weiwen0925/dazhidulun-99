@@ -553,11 +553,13 @@ idoc.close();
 var sin=idoc.getElementById('q');
 
 function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+var WREPO={zl:'nagarjuna-mulamadhyamakakarika',tg:'twelve-gates',bl:'bailun',vv:'vigrahavyavartani',bz:'pratyutpanna-samadhi-sutra',zc:'zuochan-sanmei-jing'}; /* ★新論擴充點★ 新論 base 在此補 */
 function baseOf(k){
-  if(k==='zl')return 'https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/'; /* ★新論擴充點★ 新論 base 在此補 */
+  if(WREPO[k])return 'https://weiwen0925.github.io/'+WREPO[k]+'/';
   return 'https://weiwen0925.github.io/dazhidulun-'+k+'/';
 }
-function label(k){return k==='zl'?'中論':('卷 '+k);} /* ★新論擴充點★ 新論顯示名在此補 */
+var WLNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經'}; /* ★新論擴充點★ 新論顯示名在此補 */
+function label(k){return WLNAME[k]||('卷 '+k);}
 function terms(q){return q.split(/[\s,，、・]+/).filter(function(x){return x.length>=1;}).slice(0,5);}
 function matchAll(txt,ts){var lo=txt.toLowerCase();
   for(var i=0;i<ts.length;i++){if(lo.indexOf(ts[i].toLowerCase())<0)return false;}return true;}
@@ -647,7 +649,7 @@ function render(){
   if(!vm&&!pure&&ts.length){
     var nds=IDX.nodes||{},perk={},ntot=0;
     var nkeys=Object.keys(nds);
-    nkeys.sort(function(a,b){return (a==='zl'?-1:b==='zl'?1:parseInt(a,10)-parseInt(b,10));});
+    nkeys.sort(function(a,b){var na=/^\d+$/.test(a)?parseInt(a,10):-1,nb=/^\d+$/.test(b)?parseInt(b,10):-1;return na-nb;});
     nkeys.forEach(function(k){
       for(var bi=0;bi<nds[k].length;bi++){var nd=nds[k][bi];
         if(matchAll(nd.t,ts)){(perk[k]=perk[k]||[]).push(nd);ntot++;}}
@@ -683,7 +685,7 @@ function render(){
           var zk=String(it.k);
           (zperk[zk]=zperk[zk]||[]).push(it);ztot++;}}
       var zh=[],zord=Object.keys(zperk),zrd=0,zadd=true,DZ=EXP.z?XCAP:80;
-      zord.sort(function(a,b){return (a==='zl'?-1:b==='zl'?1:parseInt(a,10)-parseInt(b,10));});
+      zord.sort(function(a,b){var na=/^\d+$/.test(a)?parseInt(a,10):-1,nb=/^\d+$/.test(b)?parseInt(b,10):-1;return na-nb;});
       while(zh.length<DZ&&zadd){zadd=false;
         for(var zo=0;zo<zord.length;zo++){var zpa=zperk[zord[zo]];
           if(zpa.length>zrd&&zh.length<DZ){zh.push(zpa[zrd]);zadd=true;}}
