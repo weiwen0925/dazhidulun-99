@@ -998,5 +998,58 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classL
 upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-C99P4:END-->
+<!--WY-C99P5:BEGIN-->
+<style id="wy-c99p5-css">
+.c99p5-fabbox{position:fixed;right:22px;bottom:78px;z-index:121;display:none;}
+.c99p5-fabbox.show{display:block;}
+.c99p5-btn{display:inline-flex;align-items:center;gap:9px;font-family:"Noto Sans TC",sans-serif;letter-spacing:.5px;color:#f7ecd2;background:linear-gradient(135deg,#573f38,#2e2420);padding:8px 15px;border-radius:22px;border:1px solid rgba(184,134,11,.6);box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;opacity:.96;transition:opacity .3s,transform .2s,box-shadow .2s;}
+.c99p5-btn:hover{opacity:1;transform:translateY(-2px);box-shadow:0 6px 22px rgba(184,134,11,.5);}
+.c99p5-ic{font-size:15px;line-height:1;color:#ecc978;}
+.c99p5-ls{display:flex;flex-direction:column;align-items:flex-start;line-height:1.22;}
+.c99p5-l1{font-size:10.5px;font-weight:500;opacity:.82;white-space:nowrap;}
+.c99p5-l2{font-size:13px;font-weight:700;color:#faf1d8;white-space:nowrap;}
+.c99p5-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(28,20,12,.58);padding:16px;}
+.c99p5-modal.open{display:flex;}
+.c99p5-card{position:relative;background:#fbf7ee;max-width:900px;width:100%;max-height:88vh;overflow:auto;border:1px solid #d8c8ac;border-radius:14px;padding:30px 24px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);}
+.c99p5-card h3{margin:0 0 2px;font-family:"Noto Serif TC",serif;font-size:20px;color:#8b5e3c;}
+.c99p5-card .sub{margin:0 0 14px;font-family:"Noto Sans TC",sans-serif;font-size:13px;color:#6b5b4b;}
+.c99p5-close{position:absolute;top:12px;right:16px;width:34px;height:34px;border:none;border-radius:50%;background:#efe6d4;color:#8b5e3c;font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+.c99p5-close:hover{background:#e3d5b8;}
+.c99p5-tbl{width:100%;border-collapse:collapse;font-family:"Noto Sans TC",sans-serif;font-size:13px;margin:.3em 0 1.2em;}
+.c99p5-tbl caption{font-family:"Noto Serif TC",serif;font-weight:700;color:#8b5e3c;font-size:14.5px;text-align:left;margin:.6em 0 .35em;line-height:1.5;}
+.c99p5-tbl th,.c99p5-tbl td{border:1px solid #d8c8ac;padding:.45em .6em;text-align:left;vertical-align:top;line-height:1.6;}
+.c99p5-tbl thead th{background:#8b5e3c;color:#f7ecd2;font-weight:700;}
+.c99p5-tbl td:first-child{white-space:nowrap;color:#8b5e3c;font-weight:700;background:#f0e8d8;}
+.c99p5-tbl tbody tr:nth-child(even) td{background:#f6efe0;}
+.c99p5-tbl b{color:#8b2500;}
+.c99p5-note{font-size:12px;color:#5a4e3a;line-height:1.9;background:#f6efe0;border-left:3px solid #c4956a;border-radius:0 6px 6px 0;padding:10px 13px;margin:4px 0 0;}
+.c99p5-note b{color:#8b2500;}
+@media(max-width:900px){.c99p5-fabbox{right:14px;}.c99p5-tbl{font-size:11.5px;}.c99p5-card{padding:26px 14px 16px;}}
+</style>
+<div class="c99p5-fabbox" id="c99p5Box"><button class="c99p5-btn" id="c99p5Btn" type="button" aria-label="開啟全景總表"><span class="c99p5-ic">▦</span><span class="c99p5-ls"><span class="c99p5-l1">本品 · 九組問答 · 中觀實踐矩陣</span><span class="c99p5-l2">魔隱水至第三禪樂</span></span></button></div><div class="c99p5-modal" id="c99p5Modal" role="dialog" aria-modal="true" aria-label="全景總表"><div class="c99p5-card"><button class="c99p5-close" id="c99p5Close" type="button" aria-label="關閉">×</button><h3>卷九十九·第五品 魔隱水至第三禪樂 · 全景總表</h3><p class="sub">卷九十九・第五品｜新發意菩薩位階限制・無瘡不受毒防護・四大互換感應道交・三昧出入第三禪樂之喻</p><table class="c99p5-tbl"><caption>一、五節點上升光帶與事件·心法·中觀理路總表（本品主骨架）</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>魔王隱水</td><td>事件：魔王波旬隱蔽水源；心法：不假外求、就地取材；中觀理路：界與空的互換（四大非我），先有水處即無，正是識破系統性干擾</td></tr><tr><td>刺血灑地</td><td>事件：自刺其身以血灑地；心法：心無憂愁、如斷草木；中觀理路：緣起防護（無瘡不受毒）——魔得便與否，端視內因（貪欲憂愁）是否具足</td></tr><tr><td>渴望莊嚴</td><td>事件：欲得名華莊嚴法座；心法：悲心生念、發希有心；中觀理路：感應道交（依待而有）——三千石曼陀羅華非自生亦非無因生，乃悲願與護法因緣和合</td></tr><tr><td>師從定起</td><td>事件：曇無竭過七歲從三昧起；心法：大悲牽引、常在定中；中觀理路：二諦圓融（不動而示現）——法身菩薩如龍潛淵，體常寂而大悲如呪術牽引出定</td></tr><tr><td>見師狂喜</td><td>事件：見師心淨悅樂如入三禪；心法：自覺大喜、即時捨離；中觀理路：受無自性（實相無受）——粗糙情緒經自覺、捨離後證入清淨法性遍身安樂</td></tr></tbody></table><table class="c99p5-tbl"><caption>二、魔隱水與刺血灑地的中觀防護機制</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>新發意菩薩位階</td><td>薩陀波崙雖福德成就、能成小願（如令華香湧出），卻是新發意菩薩，未能卻魔——魔的隱水並非失敗，而是把菩薩推向更高供養層次的逆緣觸發</td></tr><tr><td>無始生死沉沒成本</td><td>我從無始生死已來，數數喪身，未曾為法——把無量劫的死亡重新定義為純粹的成本損耗，借假修真，用必然敗壞的無常之身換取無上菩提的堅固基石</td></tr><tr><td>三柱式存活邏輯</td><td>諸天守護（不忍見菩薩捨身而護持）加惡魔退卻（知心不可沮壞，水即還出）加皆無異心（核心主因，刺身痛逼而不生悔恨）——三柱支撐刺身而不死</td></tr><tr><td>無瘡不受毒模型</td><td>人有瘡則受毒，菩薩若有貪欲憂愁瘡則魔得其便；以出血灑地心不憂愁故，魔不得便——外緣（魔）、內因（憂悔）、破壞之果三者必須同時具足</td></tr><tr><td>虛誑和合觀</td><td>見諸法實相畢竟空，知此身但是虛誑和合；破是虛誑故，割截身時不妨阿耨多羅三藐三菩提——慈母忍辱觀、實相空性觀、中觀辯證觀三層支撐</td></tr></tbody></table><table class="c99p5-tbl"><caption>三、感應道交、三昧出入機制與第三禪樂之喻</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>如火得酥</td><td>帝釋讚歎後，薩陀波崙不停留於被肯定的滿足感，立即轉念求華莊嚴——順緣不被凡夫我慢攔截，反成催化劑，精進轉熾如火得酥</td></tr><tr><td>四大互換抉擇</td><td>先有水處皆無、已知魔所作，故不遠求而就地取材、刺水分（血）灑地——血是命之所在，物理屬性（水大濕性）與勝義屬性（皆無自性）交會之處</td></tr><tr><td>三昧出入對照</td><td>聲聞滅盡定觸發機制封閉（聞犍搥當起，失火十二年身散而死）；菩薩常在定觸發機制開放（大悲心如呪術牽引），於第一義不動而示現世俗出入</td></tr><tr><td>第三禪樂之喻</td><td>樂有四種但說第三禪——涅槃無所有則心不喜、上四禪斷苦樂則不樂，唯第三禪樂之極最能以欲勾牽，誘引欲界眾生嚮往般若法</td></tr><tr><td>法喜昇華三層</td><td>大歡喜（粗糙情緒激盪）到自覺加即時捨喜（察知激盪不穩定，主動捨離）到清淨法性遍身安樂（剝離情緒波動後的微細穩定）——受的空性，實相無受名法性</td></tr></tbody></table><p class="c99p5-note">本品以九組問答，把薩陀波崙從魔王隱水到見師狂喜的全程，逐一驗算為精密的中觀方程式。新發意菩薩位階有限而不能卻魔，卻正好把危機轉為契機——刺血灑地並非自虐式的苦行狂熱，而是無瘡不受毒防護機制與四大互換勝義等價下的理性抉擇：外水既隱，內水（血）即是命之所在，物理與勝義在此交會。帝釋降華、三昧出入，同樣不是宗教神蹟的堆砌，而是內因外緣、二諦圓融的緣起顯現——法身菩薩如龍潛深淵，體常寂而大悲如呪術牽引，示現出入而實無出入。全品終結於第三禪樂的精細拆解：以欲勾牽引眾生入門，再教人自覺、捨喜、證入清淨法性——樂之極致終須收攝於實相無受，與開卷諸佛無來無去遙相呼應，完成不動而動、動而不離不動的悲智雙運閉環。</p></div></div>
+<script id="wy-c99p5-js">(function(){
+var CH=document.querySelectorAll("section.chapter");
+var BTN=document.getElementById("c99p5Btn"),BOX=document.getElementById("c99p5Box"),MODAL=document.getElementById("c99p5Modal");
+if(!CH.length||!BTN||!BOX||!MODAL)return;
+var TARGET=4;
+function curIdx(){var lim=window.innerHeight*0.35,idx=-1;for(var i=0;i<CH.length;i++){if(CH[i].getBoundingClientRect().top<lim)idx=i;}return idx;}
+var FSEL="#wyVfab,.wy-vfab,#vidFab,.vid-fab,#videoFab,#wyVideoBtn,#wyFab,#wy-fab,#vid-floating,#floatingYt,.video-fab,.wy-vbtn,.wy-video-fab,.floating-yt",_fab,_ft=false;
+function fab(){if(_fab&&_fab.isConnected)return _fab;if(_ft)return _fab;_ft=true;_fab=document.querySelector(FSEL);return _fab;}
+function place(){
+  var base=null,eb=document.querySelector(".wy-ebox");
+  if(eb){var r=eb.getBoundingClientRect();if(r.height>4)base=Math.round(window.innerHeight-r.top)+8;}
+  if(base===null){var fEl=fab();if(fEl){var fr=fEl.getBoundingClientRect(),st=getComputedStyle(fEl);if(fr.height>0&&st.display!=="none"&&st.visibility!=="hidden")base=Math.round(window.innerHeight-fr.top)+10;}}
+  if(base===null)base=78;
+  BOX.style.bottom=base+"px";
+}
+function upd(){place();BOX.classList.toggle("show",curIdx()===TARGET);}
+var tk=false;function onS(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;upd();});}}
+window.addEventListener("scroll",onS,{passive:true});window.addEventListener("resize",onS);
+BTN.addEventListener("click",function(){MODAL.classList.add("open");});
+MODAL.addEventListener("click",function(e){if(e.target===MODAL||e.target.id==="c99p5Close")MODAL.classList.remove("open");});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classList.remove("open");});
+upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
+})();</script>
+<!--WY-C99P5:END-->
 </body>
 </html>
