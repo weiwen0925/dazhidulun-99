@@ -892,5 +892,58 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classL
 upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-C99P2:END-->
+<!--WY-C99P3:BEGIN-->
+<style id="wy-c99p3-css">
+.c99p3-fabbox{position:fixed;right:22px;bottom:78px;z-index:121;display:none;}
+.c99p3-fabbox.show{display:block;}
+.c99p3-btn{display:inline-flex;align-items:center;gap:9px;font-family:"Noto Sans TC",sans-serif;letter-spacing:.5px;color:#f7ecd2;background:linear-gradient(135deg,#573f38,#2e2420);padding:8px 15px;border-radius:22px;border:1px solid rgba(184,134,11,.6);box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer;opacity:.96;transition:opacity .3s,transform .2s,box-shadow .2s;}
+.c99p3-btn:hover{opacity:1;transform:translateY(-2px);box-shadow:0 6px 22px rgba(184,134,11,.5);}
+.c99p3-ic{font-size:15px;line-height:1;color:#ecc978;}
+.c99p3-ls{display:flex;flex-direction:column;align-items:flex-start;line-height:1.22;}
+.c99p3-l1{font-size:10.5px;font-weight:500;opacity:.82;white-space:nowrap;}
+.c99p3-l2{font-size:13px;font-weight:700;color:#faf1d8;white-space:nowrap;}
+.c99p3-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(28,20,12,.58);padding:16px;}
+.c99p3-modal.open{display:flex;}
+.c99p3-card{position:relative;background:#fbf7ee;max-width:900px;width:100%;max-height:88vh;overflow:auto;border:1px solid #d8c8ac;border-radius:14px;padding:30px 24px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);}
+.c99p3-card h3{margin:0 0 2px;font-family:"Noto Serif TC",serif;font-size:20px;color:#8b5e3c;}
+.c99p3-card .sub{margin:0 0 14px;font-family:"Noto Sans TC",sans-serif;font-size:13px;color:#6b5b4b;}
+.c99p3-close{position:absolute;top:12px;right:16px;width:34px;height:34px;border:none;border-radius:50%;background:#efe6d4;color:#8b5e3c;font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+.c99p3-close:hover{background:#e3d5b8;}
+.c99p3-tbl{width:100%;border-collapse:collapse;font-family:"Noto Sans TC",sans-serif;font-size:13px;margin:.3em 0 1.2em;}
+.c99p3-tbl caption{font-family:"Noto Serif TC",serif;font-weight:700;color:#8b5e3c;font-size:14.5px;text-align:left;margin:.6em 0 .35em;line-height:1.5;}
+.c99p3-tbl th,.c99p3-tbl td{border:1px solid #d8c8ac;padding:.45em .6em;text-align:left;vertical-align:top;line-height:1.6;}
+.c99p3-tbl thead th{background:#8b5e3c;color:#f7ecd2;font-weight:700;}
+.c99p3-tbl td:first-child{white-space:nowrap;color:#8b5e3c;font-weight:700;background:#f0e8d8;}
+.c99p3-tbl tbody tr:nth-child(even) td{background:#f6efe0;}
+.c99p3-tbl b{color:#8b2500;}
+.c99p3-note{font-size:12px;color:#5a4e3a;line-height:1.9;background:#f6efe0;border-left:3px solid #c4956a;border-radius:0 6px 6px 0;padding:10px 13px;margin:4px 0 0;}
+.c99p3-note b{color:#8b2500;}
+@media(max-width:900px){.c99p3-fabbox{right:14px;}.c99p3-tbl{font-size:11.5px;}.c99p3-card{padding:26px 14px 16px;}}
+</style>
+<div class="c99p3-fabbox" id="c99p3Box"><button class="c99p3-btn" id="c99p3Btn" type="button" aria-label="開啟全景總表"><span class="c99p3-ic">▦</span><span class="c99p3-ls"><span class="c99p3-l1">本品 · 四道悖論 · 實相地圖</span><span class="c99p3-l2">本體感應倫理布施四辯</span></span></button></div><div class="c99p3-modal" id="c99p3Modal" role="dialog" aria-modal="true" aria-label="全景總表"><div class="c99p3-card"><button class="c99p3-close" id="c99p3Close" type="button" aria-label="關閉">×</button><h3>卷九十九·第三品 四道悖論解構 · 全景總表</h3><p class="sub">卷九十九・第三品｜本體論二身四喻・感應論福德物理學・倫理防護罩如無心物・三輪體空極致布施</p><table class="c99p3-tbl"><caption>一、四道悖論總覽與二諦二身金鑰（本品主骨架）</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>四大邏輯斷層</td><td>本體論（諸佛無來去，為何有苦樂與佛身？）、感應論（絕對空性中感應如何發生？）、倫理論（諸法皆空為何拘泥世俗禮法？）、布施論（供養為何又被退還？）</td></tr><tr><td>二諦圓融金鑰</td><td>世俗諦主事相運作、假名施設、因緣和合的現象生滅；第一義諦主理體本質、無來無去、畢竟空寂的實相不動——若不依俗諦，不得第一義</td></tr><tr><td>佛陀二身論</td><td>色身為世諦故有，從因緣和合生、具三十二相、為度眾生而現；法身為真佛、即第一義諦，無所從來去無所至</td></tr><tr><td>中論錨點</td><td>諸佛無來無去即觀去來品之意；眾緣和合海生寶即觀因緣品以有空義故一切法得成之八不中道；四喻所破者正是自他共無因之四生</td></tr><tr><td>四悖論同源</td><td>四層邏輯皆同源於一個核心——諸法實相；本體論矩陣、感應論迴路、倫理防護罩、布施流轉圖，皆是諸法實相在不同維度的投影</td></tr></tbody></table><table class="c99p3-tbl"><caption>二、本體論四喻矩陣與感應論福德物理學</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>本體論認知斷層</td><td>薩陀波崙卡在實有見（執現象為真）與斷滅見（聞無佛後以為諸法皆滅）兩極端之間；曇無竭以緣起中道修復此斷層</td></tr><tr><td>四喻解析矩陣</td><td>陽焰觀破實有見（妄受不代表實有）／海中生寶破斷滅見（寶不憑空生，需內因外緣）／箜篌出聲證非自非他（因緣生法即是寂滅）／善射仰空證有為法無常（力盡還墮歸磨滅）</td></tr><tr><td>感應論起點</td><td>若萬法皆空，釋提桓因為何化作曼陀羅華供養？——感應非隨機神蹟，而是外緣（帝釋攝受）與內因（薩陀波崙福德）交會的緣起必然，一套福德物理學</td></tr><tr><td>曼陀羅華變與不變</td><td>花無自性——遇無福眾生即變壞枯萎，遇薩陀波崙福德成就則得必不變；花的狀態不取決於花本身，而取決於接收者的福德因緣</td></tr><tr><td>三輪體空感應觀</td><td>施者（帝釋幻化現身）、受者（薩陀波崙身心如幻為法忘軀）、施物（曼陀羅華依福而存轉手即空）——外在奇蹟實為內在修證的緣起顯現</td></tr></tbody></table><table class="c99p3-tbl"><caption>三、倫理防護罩與極致布施的三輪體空</caption><thead><tr><th>環節</th><th>內容</th></tr></thead><tbody><tr><td>倫理悖論起點</td><td>長者女及五百侍女為何不直接供養大福田曇無竭，反須先以身屬薩陀波崙？——若直接越級，將同時違反師徒倫理與世俗避嫌二重法則</td></tr><tr><td>師徒倫理·不越級</td><td>緣起不越級——薩陀波崙是諸女直接的緣起，不背棄因緣鎖鏈方能累積真實福德；恭敬直接導師，正是連結上層諸佛的正確順流路徑</td></tr><tr><td>世俗避嫌·如無心物</td><td>女身無所繫屬則受惡名，故須建立明確世俗歸屬以防護譏謗；誠心者不自用心、隨所處分、如無心物——內修空性外順世儀的二諦防護矩陣</td></tr><tr><td>三段式法權轉移</td><td>長者女交予薩陀波崙（歸屬，避譏謗）→轉施曇無竭（除世疑盡布施）→曇無竭還與薩陀波崙（退還，令福德具足、尊重宿世師徒緣起）</td></tr><tr><td>三輪體空布施</td><td>施者空（薩陀波崙不望還得，無布施的傲慢）加受者空（曇無竭受已還與，受即非受）加施物空（長者女如無心物，隨順因緣流轉）——物歸原主而功德已圓滿法界</td></tr></tbody></table><p class="c99p3-note">本品以四道悖論的形式，揭開薩陀波崙求法敘事底層一座精密的邏輯建築：本體論以佛陀二身論與四大譬喻，說明無相之法何以能生見聞苦樂；感應論以福德物理學，說明絕對空性中曼陀羅華如何應緣而降、隨福而變；倫理論以二諦雙軌，說明拘泥世俗禮法正是保護出世間清淨法脈的方便，而非執著；布施論則以三輪體空，說明供養層層轉手、又層層退還，恰恰是檀波羅蜜的極致——施者不望還、受者受即非受、施物如無心物。四層邏輯看似分立，實則同源於諸法實相一義：在感覺上如幻、在行持上至誠、在世俗中嚴謹、在勝義中無得，四柱並立，皆因一切法無障礙故——這正是全卷空即是有、有不礙空的中道總圖。</p></div></div>
+<script id="wy-c99p3-js">(function(){
+var CH=document.querySelectorAll("section.chapter");
+var BTN=document.getElementById("c99p3Btn"),BOX=document.getElementById("c99p3Box"),MODAL=document.getElementById("c99p3Modal");
+if(!CH.length||!BTN||!BOX||!MODAL)return;
+var TARGET=2;
+function curIdx(){var lim=window.innerHeight*0.35,idx=-1;for(var i=0;i<CH.length;i++){if(CH[i].getBoundingClientRect().top<lim)idx=i;}return idx;}
+var FSEL="#wyVfab,.wy-vfab,#vidFab,.vid-fab,#videoFab,#wyVideoBtn,#wyFab,#wy-fab,#vid-floating,#floatingYt,.video-fab,.wy-vbtn,.wy-video-fab,.floating-yt",_fab,_ft=false;
+function fab(){if(_fab&&_fab.isConnected)return _fab;if(_ft)return _fab;_ft=true;_fab=document.querySelector(FSEL);return _fab;}
+function place(){
+  var base=null,eb=document.querySelector(".wy-ebox");
+  if(eb){var r=eb.getBoundingClientRect();if(r.height>4)base=Math.round(window.innerHeight-r.top)+8;}
+  if(base===null){var fEl=fab();if(fEl){var fr=fEl.getBoundingClientRect(),st=getComputedStyle(fEl);if(fr.height>0&&st.display!=="none"&&st.visibility!=="hidden")base=Math.round(window.innerHeight-fr.top)+10;}}
+  if(base===null)base=78;
+  BOX.style.bottom=base+"px";
+}
+function upd(){place();BOX.classList.toggle("show",curIdx()===TARGET);}
+var tk=false;function onS(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;upd();});}}
+window.addEventListener("scroll",onS,{passive:true});window.addEventListener("resize",onS);
+BTN.addEventListener("click",function(){MODAL.classList.add("open");});
+MODAL.addEventListener("click",function(e){if(e.target===MODAL||e.target.id==="c99p3Close")MODAL.classList.remove("open");});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classList.remove("open");});
+upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
+})();</script>
+<!--WY-C99P3:END-->
 </body>
 </html>
