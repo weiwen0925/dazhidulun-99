@@ -1227,8 +1227,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 var c=0,iv=setInterval(function(){build();if(++c>20)clearInterval(iv);},250);
 })();</script>
 <!--WY-C99TOC:END-->
+
 <!--WY-BHAUIX:BEGIN-->
-<style id="wy-bha-uix">/* bha-uix-v3 */
+<style id="wy-bha-uix">/* bha-uix-v4 */
 .wy-bhx{--bhfs:17px;}
 .wy-bhx table{font-size:var(--bhfs)!important;line-height:1.92;}
 .wy-bhx th,.wy-bhx td{padding:14px 16px!important;vertical-align:top;}
@@ -1259,6 +1260,7 @@ var c=0,iv=setInterval(function(){build();if(++c>20)clearInterval(iv);},250);
 .wy-bhx h3{font-size:calc(var(--bhfs)*1.3)!important;}
 .wy-bhx h4{font-size:calc(var(--bhfs)*1.16)!important;}
 /* 品尾導讀卡＋中觀關鍵詞 chips */
+.wy-bhx .bha-note:empty{display:none!important;}
 .wy-bhx .bha-note{display:block;background:#f4ecd9;border:1px solid #ddcda8;border-left:4px solid #b8860b;border-radius:0 10px 10px 0;padding:16px 20px 14px!important;margin:20px 0 10px;font-size:calc(var(--bhfs)*.95)!important;line-height:1.95;color:#4a3d28;}
 .wy-bhx .bha-note::before{content:"品 旨";display:inline-block;background:#b8860b;color:#fff8e6;font-size:12px;font-family:"Noto Sans TC",sans-serif;letter-spacing:3px;padding:2px 12px;border-radius:12px;margin:0 10px 6px 0;vertical-align:2px;}
 .wy-bhx .wy-kwrow{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed #cbb98d;}
@@ -1308,6 +1310,7 @@ function kwify(card){
   var ns=card.querySelectorAll(".bha-note:not([data-wykw])");
   for(var i=0;i<ns.length;i++){
     var n=ns[i];n.setAttribute("data-wykw","1");
+    if(!n.textContent.replace(/\s+/g,"")){n.style.display="none";continue;}
     var html=n.innerHTML,ix=html.indexOf("中觀關鍵詞：");
     if(ix<0)continue;
     var main=html.slice(0,ix).replace(/[　\s]+$/,"");
