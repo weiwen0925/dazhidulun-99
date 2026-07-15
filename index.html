@@ -254,7 +254,7 @@ img{-webkit-user-drag:none;pointer-events:none;}
         var url = "https://" + ALLOWED_HOST + ALLOWED_PATH +
                   "?_wyping=" + Date.now() + "." + Math.random().toString(36).slice(2,8);
         var ctrl = (typeof AbortController !== "undefined") ? new AbortController() : null;
-        var timer = setTimeout(function(){ if(ctrl){try{ctrl.abort();}catch(e){}} res(false); }, 6000);
+        var timer = setTimeout(function(){ if(ctrl){try{ctrl.abort();}catch(e){}} res(false); }, 3000);
         var opts = {method:"HEAD", cache:"no-store", credentials:"omit"};
         if(ctrl) opts.signal = ctrl.signal;
         fetch(url, opts)
@@ -264,12 +264,21 @@ img{-webkit-user-drag:none;pointer-events:none;}
     });
   }
 
-  _liveness().then(function(ok){
-    if(!ok){ _silent(); return; }
+  var _lv=null; try{ _lv=sessionStorage.getItem("__wyLive"); }catch(e){}
+  if(_lv==="1"){
     document.documentElement.classList.add("wy-revealed");
     window.__wyOriginOK = true;
     _resolve(true);
-  });
+    _liveness().then(function(ok){ if(!ok){ try{sessionStorage.removeItem("__wyLive");}catch(e){} _silent(); } });
+  }else{
+    _liveness().then(function(ok){
+      if(!ok){ _silent(); return; }
+      try{ sessionStorage.setItem("__wyLive","1"); }catch(e){}
+      document.documentElement.classList.add("wy-revealed");
+      window.__wyOriginOK = true;
+      _resolve(true);
+    });
+  }
 })();
 </script>
 </head>
@@ -452,9 +461,11 @@ document.addEventListener('keydown',function(e){var k=e.key;if(e.ctrlKey&&(k==='
   }
   window.__wyReady.then(function(ok){
     if(!ok) return;
-    document.querySelectorAll("iframe.ch-frame[data-c]").forEach(function(oldF){
+    /* WY-LAZYDEC：品 iframe 進視口才解碼（±1600px），深連結經 __wyMountSec 即時解碼 */
+    function _mount(oldF){
+      if(!oldF||!oldF.getAttribute||!oldF.getAttribute("data-c")) return null;
       var decoded = _dec(oldF.getAttribute("data-c"));
-      if(!decoded) return;
+      if(!decoded) return null;
       var newF = document.createElement("iframe");
       for(var i=0;i<oldF.attributes.length;i++){
         var a = oldF.attributes[i];
@@ -462,11 +473,35 @@ document.addEventListener('keydown',function(e){var k=e.key;if(e.ctrlKey&&(k==='
         try{ newF.setAttribute(a.name, a.value); }catch(e){}
       }
       newF.setAttribute("srcdoc", decoded);
-      try{ oldF.parentNode.replaceChild(newF, oldF); }catch(e){ return; }
+      try{ oldF.parentNode.replaceChild(newF, oldF); }catch(e){ return null; }
       if(typeof window.setupFrame === "function"){
         try{ window.setupFrame(newF); }catch(e){}
       }
-    });
+      if(typeof window.resizeAllFrames === "function"){
+        [150,800].forEach(function(ms){ setTimeout(function(){ try{ window.resizeAllFrames(); }catch(e){} }, ms); });
+      }
+      return newF;
+    }
+    var _frames = Array.prototype.slice.call(document.querySelectorAll("iframe.ch-frame[data-c]"));
+    window.__wyMountSec = function(sec){
+      if(!sec) return;
+      var fr = sec.querySelector ? sec.querySelector("iframe.ch-frame[data-c]") : null;
+      if(fr){ var nf=_mount(fr); if(nf) nf.style.minHeight=""; }
+    };
+    if("IntersectionObserver" in window && _frames.length>1){
+      _frames.forEach(function(fr){ fr.style.minHeight="100vh"; });
+      var _io = new IntersectionObserver(function(en){
+        en.forEach(function(e){
+          if(!e.isIntersecting) return;
+          _io.unobserve(e.target);
+          var nf=_mount(e.target);
+          if(nf) nf.style.minHeight="";
+        });
+      },{rootMargin:"1600px 0px 1600px 0px"});
+      _frames.forEach(function(fr){ _io.observe(fr); });
+    }else{
+      _frames.forEach(_mount);
+    }
     document.querySelectorAll("[data-wytext]").forEach(function(el){
       var t = _dec(el.getAttribute("data-wytext"));
       if(t === null) return;
