@@ -1606,5 +1606,61 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classL
 upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-BH99P4:END-->
+<!--WY-BH99P5:BEGIN-->
+<style id="wy-bh99p5-css">
+.bh99p5-fabbox{position:fixed;right:22px;bottom:150px;z-index:123;display:none;}
+.bh99p5-fabbox.show{display:block;}
+.bh99p5-btn{display:inline-flex;align-items:center;gap:9px;font-family:"Noto Sans TC",sans-serif;letter-spacing:.5px;color:#f7ecd2;background:linear-gradient(135deg,#4a5a68,#232d36);padding:8px 15px;border-radius:22px;border:1px solid rgba(150,180,205,.55);box-shadow:0 4px 16px rgba(0,0,0,.32);cursor:pointer;opacity:.96;transition:opacity .3s,transform .2s,box-shadow .2s;}
+.bh99p5-btn:hover{opacity:1;transform:translateY(-2px);box-shadow:0 6px 22px rgba(120,160,200,.5);}
+.bh99p5-ic{font-size:15px;line-height:1;color:#bcd4ea;}
+.bh99p5-ls{display:flex;flex-direction:column;align-items:flex-start;line-height:1.22;}
+.bh99p5-l1{font-size:10.5px;font-weight:500;opacity:.82;white-space:nowrap;}
+.bh99p5-l2{font-size:13px;font-weight:700;color:#eef4fa;white-space:nowrap;}
+.bh99p5-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(22,26,30,.6);padding:16px;}
+.bh99p5-modal.open{display:flex;}
+.bh99p5-card{position:relative;background:#fbf7ee;max-width:1080px;width:100%;max-height:90vh;overflow:auto;border:1px solid #d3cdbf;border-radius:14px;padding:28px 22px 20px;box-shadow:0 18px 50px rgba(0,0,0,.4);}
+.bh99p5-card h3{margin:0 0 2px;font-family:"Noto Serif TC",serif;font-size:20px;color:#3f5160;}
+.bh99p5-card .sub{margin:0 0 12px;font-family:"Noto Sans TC",sans-serif;font-size:12.5px;color:#5b6b78;}
+.bh99p5-close{position:absolute;top:12px;right:16px;width:34px;height:34px;border:none;border-radius:50%;background:#eceef0;color:#3f5160;font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+.bh99p5-close:hover{background:#dde2e6;}
+.bh99p5-tbl{width:100%;border-collapse:collapse;font-size:12.8px;margin:.2em 0 1em;}
+.bh99p5-tbl caption{font-family:"Noto Serif TC",serif;font-weight:700;color:#3f5160;font-size:14px;text-align:left;margin:.4em 0 .5em;}
+.bh99p5-tbl th,.bh99p5-tbl td{border:1px solid #d8d2c4;padding:.5em .65em;text-align:left;vertical-align:top;line-height:1.72;}
+.bh99p5-tbl thead th{background:#3f5160;color:#eef4fa;font-weight:700;position:sticky;top:0;}
+.bh99p5-tbl thead th:nth-child(1){width:32%;}.bh99p5-tbl thead th:nth-child(2){width:41%;}.bh99p5-tbl thead th:nth-child(3){width:27%;}
+.bh99p5-src{font-family:"Noto Serif TC",serif;color:#5a4636;background:#f6efe0;letter-spacing:.3px;}
+.bh99p5-guan{background:#eef2f5;color:#37505f;}
+.bh99p5-tbl tbody tr:nth-child(even) td{background:#faf6ee;}
+.bh99p5-tbl tbody tr:nth-child(even) td.bh99p5-guan{background:#e8eef2;}
+.bh99p5-tbl b{color:#8b2500;}
+.bh99p5-guan b{color:#2f6b5a;}
+.bh99p5-note{font-size:12px;color:#4a5560;line-height:1.95;background:#eef2f5;border-left:3px solid #7f9cb5;border-radius:0 6px 6px 0;padding:11px 14px;margin:2px 0 0;}
+.bh99p5-note b{color:#8b2500;}
+@media(max-width:900px){.bh99p5-fabbox{right:14px;}.bh99p5-tbl{font-size:11px;}.bh99p5-card{padding:22px 12px 14px;}}
+</style>
+<div class="bh99p5-fabbox" id="bh99p5Box"><button class="bh99p5-btn" id="bh99p5Btn" type="button" aria-label="開啟白話翻譯表"><span class="bh99p5-ic">譯</span><span class="bh99p5-ls"><span class="bh99p5-l1">本品 · 原文·白話·中觀</span><span class="bh99p5-l2">白話翻譯表</span></span></button></div><div class="bh99p5-modal" id="bh99p5Modal" role="dialog" aria-modal="true"><div class="bh99p5-card"><button class="bh99p5-close" id="bh99p5Close" type="button" aria-label="關閉">×</button><h3>第5品 · 九組問答・中觀實踐矩陣 原文↔白話↔中觀 翻譯表</h3><p class="sub">《大智度論》卷九十九 · 第五品（卷末）論主問答原文全覽（福德與魔障並存‧愛法與惜身之矛盾‧瘡毒喻煩惱破綻‧身空故割截無礙‧捨易求難刺水分供養‧三昧出入自作限齊與常在定‧滅受定比丘十二歲反例‧呪術出龍喻示現非實‧七年渴仰終見三禪法喜‧以樂之極誘入無樂之樂）· 原文↔白話↔中觀概念 逐段對照</p><table class="bh99p5-tbl"><caption>《大智度論》卷99‧第五品‧九組問答與中觀實踐矩陣‧原文｜白話翻譯｜中觀概念（共15段）</caption><thead><tr><th>原文</th><th>白話翻譯</th><th>中觀概念</th></tr></thead><tbody><tr><td class="bh99p5-src">問曰：若薩陀波崙福德成就，隨願即得，魔不應隱蔽其水？</td><td>問：如果薩陀波崙菩薩福德已經成就，只要一發願就能夠隨即獲得成就，那麼照理說魔王就不應該還能夠隱藏他要用的水才對？</td><td class="bh99p5-guan"><b>福德與魔障並存之問</b>——此問質疑「福德成就」與「仍受魔擾」二者是否邏輯矛盾，是全品「識破與止損」章節的核心辯證起點。</td></tr><tr><td class="bh99p5-src">答曰：是菩薩新發意，能成小願，未能卻魔。此中薩陀波崙自說出血因緣——「我從無始生死已來，數數喪身，未曾為法」。</td><td>答：這是因為薩陀波崙菩薩還只是剛發心不久的菩薩，只能夠成就求水、求華等這類比較小的心願，還沒有能力抵禦、退卻魔王的擾亂。對此，薩陀波崙自己也說出了刺身出血的因緣——他說：「我從無始以來，在生死之中流轉，已經無數次地喪失身命，卻從來不曾有一次是為了正法而捨身。」</td><td class="bh99p5-guan"><b>位階限制非失敗乃逆緣觸發</b>——「新發意」點出薩陀波崙尚未具足降魔的位階神力，然而論主並不將此視為修行的缺陷或失敗，而是讓魔王隱水這一逆緣恰好成為推動他以血供養、更深一層布施精進的觸媒；「數數喪身，未曾為法」一語，更道出無始輪迴中色身之捨棄若不與求法相應，便毫無意義的深刻反省。</td></tr><tr><td class="bh99p5-src">問曰：若薩陀波崙愛法，刺身出血，若其身死，誰復聽法？</td><td>問：如果說薩陀波崙菩薩是因為愛慕正法才刺身出血供養，那麼萬一他因此傷重而死，還有誰能夠繼續聽聞正法呢？</td><td class="bh99p5-guan"><b>愛法與惜身之矛盾</b>——此問代表世間常理的疑慮：捨身求法若導致喪命，反而斷絕了聞法修行的可能，看似與「愛法」的初衷自相矛盾。</td></tr><tr><td class="bh99p5-src">答曰：是事如「破骨出髓」中答——諸天大菩薩守護，令不死；惡魔知其心不可沮壞，水即還出；皆無異心者，初習慈心、為般若不惜身命，得利刀割身亦不生悔恨。</td><td>答：這件事就如同（經中）「敲骨取髓」公案裡所回答的道理一樣——會有諸天、大菩薩在旁守護，使他不至於因此喪命；而且惡魔也知道他的心志堅定、不可能被沮喪破壞，所以隱藏的水便又重新湧現出來。之所以（薩陀波崙及五百侍女）都能夠毫無異心，是因為他們自最初便已修習慈悲之心，為了般若正法而不顧惜自己的身命，即使被利刀割截身體，內心也絲毫不會生起悔恨。</td><td class="bh99p5-guan"><b>護法因緣化解捨身之憂</b>——此答並未否定「刺身可能致死」的疑慮，而是指出護法因緣（諸天守護）與魔王自知不可沮壞（水即還出）二者和合，才使極端供養行為得以安然無恙；末句「得利刀割身亦不生悔恨」則點出真正的關鍵在慈心與無悔之心，而非僥倖的外在保護。</td></tr><tr><td class="bh99p5-src">魔不得其便者，如人有瘡則受毒；菩薩若有貪欲、憂愁瘡者，魔得其便。以出血灑地，心不憂愁故，魔不得便。</td><td>所謂「魔王無法得逞」，就好比人身上如果有瘡傷，就容易感染毒素；菩薩如果心中還有貪欲、憂愁等瘡傷般的煩惱，魔王就能夠趁虛而入、得逞其便。（薩陀波崙）以刺身出血灑地供養，心中卻毫無憂愁煩惱，所以魔王無法得逞。</td><td class="bh99p5-guan"><b>瘡毒喻煩惱破綻</b>——以「有瘡受毒」比喻煩惱是魔擾得以乘虛而入的破口；貪欲、憂愁等心瘡若不除，縱使色身完好，魔仍能得便。薩陀波崙刺血而心無憂惱，正說明「不受」（心不領受苦樂分別）才是真正的無瘡之身，呼應般若「心不著味」的無漏修證。</td></tr><tr><td class="bh99p5-src">又復見諸法實相畢竟空故，知是身但是虛誑和合；破是虛誑故，割截身時，不妨阿耨多羅三藐三菩提。</td><td>再者，（薩陀波崙）因為照見諸法實相畢竟空的緣故，知道這個色身不過是虛妄不實的因緣和合而成；正因為看破了這種虛妄不實，所以在割截自己身體的時候，也絲毫不妨礙他趣向無上正等正覺。</td><td class="bh99p5-guan"><b>照見身空故割截無礙</b>——此段點出刺血供養之所以可能、且不違背修行的深層義理：唯有照見色身「虛誑和合」畢竟空之實相，才能在割截色身時毫無恐懼退轉；破妄顯真與追求菩提二者不但不相妨礙，反而正是同一空觀智慧的一體兩面。</td></tr><tr><td class="bh99p5-src">問曰：不見水時，何以不作是念——當於何處得水？</td><td>問：找不到水的時候，薩陀波崙菩薩為什麼不這樣想——應該到別的地方去找水呢？</td><td class="bh99p5-guan"><b>捨易求難之問</b>——此問質疑何以不採取「另覓水源」這一更省力合理的做法，反而選擇刺血這種激烈手段，觸及行為選擇是否合乎常理效益的考量。</td></tr><tr><td class="bh99p5-src">答曰：先有水處皆無，已知魔所作；故自於四大分中「刺水分」（血是命之所在）灑地。</td><td>答：原本有水的地方如今全都沒有水了，薩陀波崙已經知道這是魔王所造成的，所以他才決定從自己身體地水火風四大之中屬於「水的部分」——也就是血液，因為血正是生命之所在——取而灑地供養。</td><td class="bh99p5-guan"><b>身水一如破內外分別</b>——「刺水分」的巧妙之處在於：色身本由地水火風四大和合，血液即是身中之「水」，故以自身之血代替外在難覓之水，並非執意逞強，而是照見四大同源、內外不二之理的自然選擇，呼應中觀「四大互換」而不落內外對立的空觀。</td></tr><tr><td class="bh99p5-src">問曰：諸菩薩入微妙三昧，誰能令起？</td><td>問：各位菩薩進入微妙深邃的三昧禪定之中，究竟是誰能夠使他們從定中出起呢？</td><td class="bh99p5-guan"><b>入定出定機制之問</b>——此問由薩陀波崙、曇無竭的長時安住三昧引發，追問甚深禪定的出入是依靠自力還是他力，是「三昧出入對照矩陣」章節的總提問。</td></tr><tr><td class="bh99p5-src">答曰：(a)行者自作限齊，時至自在從定起；(b)法身菩薩如諸佛常入三昧，以神通力說法飛行，世俗法故有出入相。</td><td>答：（有兩種情況）第一種，是修行者自己預先設定期限，等到時間一到，便能自由自在地從禪定之中出起；第二種，是已證得法身的菩薩，就如同諸佛經常安住在三昧之中一般，藉由神通之力來說法、飛行教化，這只是隨順世間法才示現有出定、入定的相狀而已。</td><td class="bh99p5-guan"><b>自作限齊與常在定之二諦</b>——「自作限齊」屬於世俗諦層面依因緣條件而定的出入相；「法身菩薩如諸佛常在定」則指向勝義諦上法身本自不動、無所謂出入，只是為隨順世間教化因緣而「示現」出入之相。兩種機制並不衝突，正是二諦圓融、悲智雙運在甚深三昧上的具體展開。</td></tr><tr><td class="bh99p5-src">滅受定比丘自期「聞犍搥當起」；後僧坊失火，無人打犍搥，過十二歲後重打方起——即身散而死。</td><td>（從前）有一位入於滅受想定的比丘，自己預先設定「聽到打犍搥的聲音就出定」；後來寺院僧坊遭遇火災，沒有人去敲打犍搥（召集用的木板法器），結果一直過了十二年後，才有人重新打響犍搥，這位比丘這才出定──而他的身體卻在這一瞬間離散壞滅而死去。</td><td class="bh99p5-guan"><b>定中限齊顯緣起制約</b>——此一反例說明「自作限齊」出定之法雖能自主設定條件，卻也完全受制於外在因緣是否具足：犍搥不響，十二年的色身早已隨劫壞散，唯定力所持、出定剎那業報方才顯現。以此對照曇無竭「七歲自誓入定」，更顯後者是願力與因緣配合無間的殊勝，而非僅靠色身抵抗業報之常法。</td></tr><tr><td class="bh99p5-src">譬如呪術出龍，大眾圍繞者，是內眷屬……為說般若波羅蜜故。</td><td>這就好比以咒術之力召請出龍王，龍王現身時，那些圍繞在旁的大眾，其實都只是幻化出的內在眷屬一般……曇無竭菩薩化現富麗宮殿與眷屬圍繞，也是如此，都是為了宣說般若波羅蜜的緣故。</td><td class="bh99p5-guan"><b>呪術幻龍喻示現非實</b>——以咒術幻化出龍及其眷屬為喻，說明曇無竭七年三昧中所現的宮殿、婇女、眷屬圍繞等富麗莊嚴之相，同樣是因緣幻現、非有實體的示現；其目的始終指向「為說般若波羅蜜故」，說明一切外相莊嚴皆是說法方便，不可執以為實。</td></tr><tr><td class="bh99p5-src">「薩陀波崙菩薩見曇無竭菩薩，即時得清淨歡喜，樂遍其身，如比丘入於三禪。」論曰：「多欲眾生雖非淨妙得猶喜樂，何況見真功德莊嚴身？」</td><td>「薩陀波崙菩薩一見到曇無竭菩薩，當下便生起清淨的歡喜之心，喜樂之感遍滿全身，就如同比丘證入第三禪那樣的喜樂。」論中解釋說：「多欲的凡夫眾生，即使得到的並非真正清淨微妙之物，尚且能生起歡喜喜樂之心，何況是親眼見到具足真實功德莊嚴之身（的曇無竭菩薩）呢？」</td><td class="bh99p5-guan"><b>七年渴仰終見法喜圓滿</b>——以「如比丘入於三禪」形容薩陀波崙終於見到曇無竭時的法喜遍身，呼應七年經行渴仰求法的漫長鋪墊；論主更以「多欲眾生尚且喜樂，何況見真功德莊嚴身」的層遞式推論，說明對治五欲的法喜遠勝世間欲樂，這正是以世間可理解的「樂」引導眾生體會出世法喜之殊勝。</td></tr><tr><td class="bh99p5-src">問曰：樂有四種，何以但說第三禪樂？</td><td>問：（禪定之中的）快樂共有四種層次，為什麼經文獨獨只說第三禪的快樂呢？</td><td class="bh99p5-guan"><b>擇樂說法之問</b>——此問追究經文以「如比丘入於三禪」形容薩陀波崙見法喜悅的用意，探討四種禪樂之中何以特別揀選第三禪為喻。</td></tr><tr><td class="bh99p5-src">答曰：欲界眾生於三受中多貪樂受；說涅槃無所有則心不喜，說上四禪斷苦樂則亦不樂；第三禪「樂之極」最能誘引。</td><td>答：欲界的眾生在苦受、樂受、不苦不樂受這三種感受之中，大多貪著於樂受。如果直接向他們宣說涅槃「無所有」的道理，他們心中反而不會生起歡喜；如果宣說更高的第四禪那種斷除苦樂二受的境界，他們同樣也不會感到喜樂。唯有第三禪的快樂是所有禪定之樂中最為極致殊勝的，最能夠吸引、誘導眾生生起嚮往之心，所以才特別以第三禪之樂作譬喻。</td><td class="bh99p5-guan"><b>以樂之極誘入無樂之樂</b>——選擇眾生最容易理解、最嚮往的「樂之極」（第三禪）作為譬喻，正是善巧方便契合眾生根機的教學策略：先以眾生能懂、能欣羨的世間至樂為橋梁，才能進一步引導其趣向涅槃「無所有」、超越苦樂對待的究竟法喜，呼應般若「先以欲鉤牽，後令入佛智」之教化次第。</td></tr></tbody></table><p class="bh99p5-note">本表為卷九十九第五品（全卷末品）論主（龍樹菩薩）問答原文‧白話‧中觀三欄逐段對照，共15段（5組問答＋5則classical引文，依實際位移交錯排序）。本品原始頁面與第一至四品重疊之經文原典敘事（諸佛無來無去、以身屬師供養、敷座求華莊嚴等）已核實剔除；純編者摘要圖表（如「事件流①→②→③→④」）非原典不納入；與品3「名為真佛弟子」等重疊excerpt亦不重複收錄。白話忠於原意、不增不減。　中觀關鍵詞：四大互換　身空無礙　自作限齊與常在定　二諦圓融　以樂之極誘入無樂之樂</p></div></div>
+<script id="wy-bh99p5-js">(function(){
+var CH=document.querySelectorAll("section.chapter");
+var BTN=document.getElementById("bh99p5Btn"),BOX=document.getElementById("bh99p5Box"),MODAL=document.getElementById("bh99p5Modal");
+if(!CH.length||!BTN||!BOX||!MODAL)return;
+var TARGET=4;
+var CBOX=document.getElementById("c99p5Box");
+function place(){
+  var b=null;
+  if(CBOX){var st=getComputedStyle(CBOX);var r=CBOX.getBoundingClientRect();if(st.position==="fixed"&&r.height>0&&st.display!=="none")b=Math.round(window.innerHeight-r.top)+8;}
+  if(b===null){var eb=document.querySelector(".wy-ebox");if(eb){var er=eb.getBoundingClientRect();if(er.height>4)b=Math.round(window.innerHeight-er.top)+8;}}
+  if(b===null)b=150;
+  BOX.style.bottom=b+"px"; /*BHPLACE*/
+}
+function curIdx(){var lim=window.innerHeight*0.35,idx=-1;for(var i=0;i<CH.length;i++){if(CH[i].getBoundingClientRect().top<lim)idx=i;}return idx;}
+function upd(){place();BOX.classList.toggle("show",curIdx()===TARGET);}
+var tk=false;function onS(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;upd();});}}
+window.addEventListener("scroll",onS,{passive:true});window.addEventListener("resize",onS);
+BTN.addEventListener("click",function(){MODAL.classList.add("open");});
+MODAL.addEventListener("click",function(e){if(e.target===MODAL||e.target.id==="bh99p5Close")MODAL.classList.remove("open");});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classList.remove("open");});
+upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
+})();</script>
+<!--WY-BH99P5:END-->
 </body>
 </html>
