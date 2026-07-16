@@ -1662,5 +1662,54 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classL
 upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-BH99P5:END-->
+<!--WY-C99TOCBH:BEGIN-->
+<style id="wy-c99tocbh-css">
+.toc-bh{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:14px;cursor:pointer;background:linear-gradient(135deg,#4a5a68,#2b3742);color:#eef4fa;font-family:"Noto Sans TC",sans-serif;font-size:12px;letter-spacing:1px;font-weight:600;line-height:1.25;white-space:nowrap;box-shadow:0 1px 4px rgba(43,55,66,.4);border:1px solid rgba(180,205,225,.28);user-select:none;transition:filter .2s,transform .2s,box-shadow .2s;pointer-events:auto;}
+.toc-bh:hover{filter:brightness(1.12);transform:translateY(-1px);box-shadow:0 4px 12px rgba(43,55,66,.5);}
+.toc-bh:focus-visible{outline:2px solid #7f9cb5;outline-offset:2px;}
+.toc-bh .bh-ic{font-size:11px;line-height:1;}
+@media(max-width:520px){.toc-bh{padding:4px 10px;letter-spacing:.3px;font-size:11px;}}
+</style>
+<script id="wy-c99tocbh-js">(function(){
+function mkpill(bhIdx){
+  var bh=document.createElement('span');bh.className='toc-bh';bh.setAttribute('data-bh',String(bhIdx));
+  bh.setAttribute('role','button');bh.setAttribute('tabindex','0');
+  bh.setAttribute('aria-label','第'+bhIdx+'品 白話翻譯表');bh.title='本品白話翻譯表';
+  bh.innerHTML='<span class="bh-ic">\u8b6f</span>白話';
+  return bh;
+}
+function build(){
+  var acts=document.querySelectorAll('.toc-actions,.wy-toc-actions');
+  var did=0;
+  for(var i=0;i<acts.length;i++){
+    var act=acts[i];
+    if(act.querySelector('.toc-bh'))continue;
+    var tbl=act.querySelector('.toc-tbl,.wy-toc-tbl');if(!tbl)continue;
+    var n=tbl.getAttribute('data-tbl');if(n===null)continue;
+    var chNum=parseInt(n,10);if(isNaN(chNum))continue;
+    var bhIdx=chNum;
+    act.insertBefore(mkpill(bhIdx), act.firstChild);
+    did++;
+  }
+  return did;
+}
+function openBH(bhIdx){
+  var m=document.getElementById('bh99p'+bhIdx+'Modal');
+  if(m){m.classList.add('open');}else{location.hash='#chapter-'+bhIdx;}
+}
+document.addEventListener('click',function(e){
+  var b=(e.target&&e.target.closest)?e.target.closest('.toc-bh'):null;if(!b)return;
+  e.preventDefault();e.stopPropagation();openBH(parseInt(b.getAttribute('data-bh'),10));
+},true);
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  var b=(e.target&&e.target.closest)?e.target.closest('.toc-bh'):null;if(!b)return;
+  e.preventDefault();openBH(parseInt(b.getAttribute('data-bh'),10));
+});
+build();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);
+var c=0,iv=setInterval(function(){build();if(++c>40)clearInterval(iv);},250);
+})();</script>
+<!--WY-C99TOCBH:END-->
 </body>
 </html>
