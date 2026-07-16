@@ -1550,5 +1550,61 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classL
 upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-BH99P3:END-->
+<!--WY-BH99P4:BEGIN-->
+<style id="wy-bh99p4-css">
+.bh99p4-fabbox{position:fixed;right:22px;bottom:150px;z-index:123;display:none;}
+.bh99p4-fabbox.show{display:block;}
+.bh99p4-btn{display:inline-flex;align-items:center;gap:9px;font-family:"Noto Sans TC",sans-serif;letter-spacing:.5px;color:#f7ecd2;background:linear-gradient(135deg,#4a5a68,#232d36);padding:8px 15px;border-radius:22px;border:1px solid rgba(150,180,205,.55);box-shadow:0 4px 16px rgba(0,0,0,.32);cursor:pointer;opacity:.96;transition:opacity .3s,transform .2s,box-shadow .2s;}
+.bh99p4-btn:hover{opacity:1;transform:translateY(-2px);box-shadow:0 6px 22px rgba(120,160,200,.5);}
+.bh99p4-ic{font-size:15px;line-height:1;color:#bcd4ea;}
+.bh99p4-ls{display:flex;flex-direction:column;align-items:flex-start;line-height:1.22;}
+.bh99p4-l1{font-size:10.5px;font-weight:500;opacity:.82;white-space:nowrap;}
+.bh99p4-l2{font-size:13px;font-weight:700;color:#eef4fa;white-space:nowrap;}
+.bh99p4-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(22,26,30,.6);padding:16px;}
+.bh99p4-modal.open{display:flex;}
+.bh99p4-card{position:relative;background:#fbf7ee;max-width:1080px;width:100%;max-height:90vh;overflow:auto;border:1px solid #d3cdbf;border-radius:14px;padding:28px 22px 20px;box-shadow:0 18px 50px rgba(0,0,0,.4);}
+.bh99p4-card h3{margin:0 0 2px;font-family:"Noto Serif TC",serif;font-size:20px;color:#3f5160;}
+.bh99p4-card .sub{margin:0 0 12px;font-family:"Noto Sans TC",sans-serif;font-size:12.5px;color:#5b6b78;}
+.bh99p4-close{position:absolute;top:12px;right:16px;width:34px;height:34px;border:none;border-radius:50%;background:#eceef0;color:#3f5160;font-size:22px;line-height:1;cursor:pointer;z-index:2;}
+.bh99p4-close:hover{background:#dde2e6;}
+.bh99p4-tbl{width:100%;border-collapse:collapse;font-size:12.8px;margin:.2em 0 1em;}
+.bh99p4-tbl caption{font-family:"Noto Serif TC",serif;font-weight:700;color:#3f5160;font-size:14px;text-align:left;margin:.4em 0 .5em;}
+.bh99p4-tbl th,.bh99p4-tbl td{border:1px solid #d8d2c4;padding:.5em .65em;text-align:left;vertical-align:top;line-height:1.72;}
+.bh99p4-tbl thead th{background:#3f5160;color:#eef4fa;font-weight:700;position:sticky;top:0;}
+.bh99p4-tbl thead th:nth-child(1){width:32%;}.bh99p4-tbl thead th:nth-child(2){width:41%;}.bh99p4-tbl thead th:nth-child(3){width:27%;}
+.bh99p4-src{font-family:"Noto Serif TC",serif;color:#5a4636;background:#f6efe0;letter-spacing:.3px;}
+.bh99p4-guan{background:#eef2f5;color:#37505f;}
+.bh99p4-tbl tbody tr:nth-child(even) td{background:#faf6ee;}
+.bh99p4-tbl tbody tr:nth-child(even) td.bh99p4-guan{background:#e8eef2;}
+.bh99p4-tbl b{color:#8b2500;}
+.bh99p4-guan b{color:#2f6b5a;}
+.bh99p4-note{font-size:12px;color:#4a5560;line-height:1.95;background:#eef2f5;border-left:3px solid #7f9cb5;border-radius:0 6px 6px 0;padding:11px 14px;margin:2px 0 0;}
+.bh99p4-note b{color:#8b2500;}
+@media(max-width:900px){.bh99p4-fabbox{right:14px;}.bh99p4-tbl{font-size:11px;}.bh99p4-card{padding:22px 12px 14px;}}
+</style>
+<div class="bh99p4-fabbox" id="bh99p4Box"><button class="bh99p4-btn" id="bh99p4Btn" type="button" aria-label="開啟白話翻譯表"><span class="bh99p4-ic">譯</span><span class="bh99p4-ls"><span class="bh99p4-l1">本品 · 原文·白話·中觀</span><span class="bh99p4-l2">白話翻譯表</span></span></button></div><div class="bh99p4-modal" id="bh99p4Modal" role="dialog" aria-modal="true"><div class="bh99p4-card"><button class="bh99p4-close" id="bh99p4Close" type="button" aria-label="關閉">×</button><h3>第4品 · 四重辯證・七歲精進 原文↔白話↔中觀 翻譯表</h3><p class="sub">《大智度論》卷九十九 · 第四品 論主問答原文全覽（第一重辯證行儀矛盾學者疑問說法者何以入宮‧第二重辯證時空矛盾人身軟弱七歲不臥‧第三重辯證說法矛盾曇無竭七歲三昧除疑生信‧第四重辯證淨穢矛盾魔隱水源刺血灑地合理性）· 原文↔白話↔中觀概念 逐段對照</p><table class="bh99p4-tbl"><caption>《大智度論》卷99‧第四品‧四重辯證與七歲精進‧原文｜白話翻譯｜中觀概念（共16段）</caption><thead><tr><th>原文</th><th>白話翻譯</th><th>中觀概念</th></tr></thead><tbody><tr><td class="bh99p4-src">問曰：諸大菩薩說法不應疲極，何以入宮？</td><td>問：諸大菩薩說法應當不會感到疲倦困極，那曇無竭菩薩為什麼還要在日落之後回到宮中休息呢？</td><td class="bh99p4-guan"><b>疲極之問實為方便之問</b>——此問看似質疑曇無竭說法有所懈怠，實則引出下文「隨世人法」的方便教化之理：法身雖無疲厭，示現於世間仍須隨順世諦因緣。</td></tr><tr><td class="bh99p4-src">答曰：隨世人法故。又眾香城中眾生，不常求道，或時厭息，受五欲樂；諸天常受五欲故，妨廢求道。有菩薩所住國，常勤精進，不受五欲。是眾香城眾生本願雜受，曇無竭隨其志願，欲引導之，故生其國。是故以眾生聽法疲倦，起入宮中。又未得道者，法雖微妙，常聞故生疲厭心，是眾中有是人故。又曇無竭在是中受富樂，人法故，日沒應息。</td><td>答：這是因為要隨順世間人的法度習慣。而且，香城之中的眾生並非都能經常求道，有時也會生起厭倦而想休息、享受五欲之樂的心；因為諸天經常耽於享受五欲，反而會妨礙荒廢求道之心。也有菩薩所安住的國土，眾生常能勤奮精進，不耽著五欲。而這個眾香城中的眾生，本願原本就是雜有各種根性的，曇無竭隨順他們各自的心願志向，想要藉此引導他們，所以才出生在這個國土。因此，是因為顧念眾生聽法會感到疲倦，才起身回宮。另外，對尚未證道的人來說，佛法雖然微妙深奧，但常常聽聞也會生起疲倦厭煩之心，因為聽法的大眾之中就有這樣的人。再者，曇無竭菩薩在宮中也是享有富貴安樂的，這也是隨順世間人情法度，日落之後理應歇息。</td><td class="bh99p4-guan"><b>隨世諦而顯二諦圓融</b>——曇無竭日沒入宮並非貪著五欲，而是「隨世人法」的善巧方便：法身菩薩雖已超越疲厭，仍須以世諦行儀攝受根機未熟、易生厭倦的眾生，此即勝義諦與世俗諦不相妨礙、悲智雙運的具體示現。</td></tr><tr><td class="bh99p4-src">問曰：為法故何以不應坐臥？</td><td>問：既然是為了求法，為什麼就不應該坐下或躺臥休息呢？</td><td class="bh99p4-guan"><b>行儀非定法之問</b>——此問質疑「不坐不臥」是否為求法的必要條件，答文以「無是定法」開篇，正點出戒律行儀本無固定僵化之相，一切依發心而定。</td></tr><tr><td class="bh99p4-src">答曰：無是定法。此人大欲、大精進、恭敬法故，自作是念：「我若坐臥，則是懶惰。我初求法時，身尚不惜，何況疲倦！」是故不坐臥。大欲、大精進與坐臥相違故。又坐、臥則不勤力，行、立則勤力精進，是故常住二威儀以待師出。</td><td>答：這並沒有一定的規矩法則。這個人（薩陀波崙）因為有廣大的欲求、廣大的精進之心，並且恭敬正法的緣故，才自己這樣想：「如果我坐下或躺臥，那就是懈怠懶惰。我當初求法的時候，連身體性命都在所不惜，何況只是疲倦而已！」所以才不坐不臥。這是因為他廣大的欲求與精進之心，與坐臥懈怠的狀態互相違背的緣故。而且，坐著或躺臥就不能勤奮用力，行走或站立才能勤奮精進，所以他才常保持行走與站立這兩種威儀，以等待法師從宮中出來。</td><td class="bh99p4-guan"><b>法無定相隨心而轉</b>——答文明言「無是定法」，破除將「不坐不臥」執為外在戒律教條的誤解；真正的關鍵在於「大欲、大精進」之心，行儀只是內心精進志求的自然外顯，此即中觀「法無定相，因心立相」之理。</td></tr><tr><td class="bh99p4-src">問曰：薩陀波崙先知師七歲不出不？</td><td>問：薩陀波崙菩薩起初就知道老師（曇無竭）將會七年不出定嗎？</td><td class="bh99p4-guan"><b>時空矛盾辯證之開端</b>——此問質疑薩陀波崙若不知七年之期，何以能發起「終不坐臥」的誓言，觸及知與行、誓願與未知因緣之間的張力。</td></tr><tr><td class="bh99p4-src">答曰：初來不知故。又復曇無竭亦常七歲不出，以因緣故，自誓七歲入定。薩陀波崙自誓：「師未出，終不坐臥。」又大人，世間法尚不自違，何況為道法！又以初求法時，尚不惜身，今立七歲，何足為難！</td><td>答：他剛來的時候並不知道。而且曇無竭菩薩也是經常七年不出定的，是因為某種因緣的緣故，自己發誓要七年入定。薩陀波崙也自己發誓：「老師還沒有出定之前，我終究不會坐下或躺臥。」再者，作為一個發大心的人，對於世間法尚且不會違背自己的誓言，何況是為了修道求法呢！而且，他當初求法的時候，尚且連身體性命都在所不惜，如今只是站立七年，又有什麼難以做到的呢！</td><td class="bh99p4-guan"><b>不知而誓顯大心不退</b>——薩陀波崙並非預知七年之期才發願，而是「不知亦誓」——這種不預設條件、不計較時限的誓願，正顯示菩薩「大人之格」不因外境未知而動搖，是願力先於知見的修行典範。</td></tr><tr><td class="bh99p4-src">問曰：人身軟弱，何能七歲不坐不臥？</td><td>問：人的身體本是軟弱的，怎麼能夠七年之久不坐不臥呢？</td><td class="bh99p4-guan"><b>色身有限與願力無限之矛盾</b>——此問直指有為色身的生理侷限，與菩薩誓願之間看似不可調和的張力，是「時空矛盾」辯證的核心提問。</td></tr><tr><td class="bh99p4-src">答曰：是時人壽命長，雖復七歲，如今七日。又好世人身福德力大，雖立七歲，不以為難。如勤比丘，年六十始出家，而自結誓：「我脇不著席，要盡得聲聞所應得事，乃至得六神通阿羅漢。」作四阿含優婆提舍，於今大行於世。此人於惡世尚爾，何況薩陀波崙生於好世！又身力雖弱，以心強故，能辦其事。復次，一心求佛道者，十方諸佛所念；諸大菩薩及求佛道諸天益其氣力，圍遶守護，是故雖住立七歲而不疲極。</td><td>答：那個時代的人壽命很長，雖然說是七年，其實就如同現在的七天一般（短暫）。而且太平盛世的人，身體的福德力量也很強大，雖然站立七年，也不會覺得困難。就像精進的比丘，六十歲才出家，卻自己立下誓言：「我的兩脅絕不沾床席，一定要證得聲聞所應證得的一切果位，乃至證得六種神通的阿羅漢果。」後來撰作了四部阿含的優婆提舍（論釋），如今仍然大為流行於世間。這個人身處惡世尚且能夠如此，何況薩陀波崙出生在美好的時代呢！而且，身體的力量雖然軟弱，但因為心志堅強的緣故，仍然能夠成辦這件事。再者，一心求取佛道的人，會受到十方諸佛的憶念護持；諸大菩薩以及求佛道的諸天，也會增益他的氣力，圍繞守護著他，所以他雖然站立七年，卻不會感到疲憊困極。</td><td class="bh99p4-guan"><b>心力勝於身力</b>——「身力雖弱，以心強故，能辦其事」一句正是全段核心：色身雖有限、雖軟弱，然心願堅固則能突破生理侷限；復加十方諸佛諸天護念增力，說明修行並非純粹依賴自身色身條件，而是內在願力與外在因緣護持和合而成，呼應前品「內因外緣二者具足」之理。</td></tr><tr><td class="bh99p4-src">問曰：曇無竭入三昧，何以乃至七歲？</td><td>問：曇無竭菩薩入於三昧禪定之中，為什麼要長達七年之久呢？</td><td class="bh99p4-guan"><b>導師行儀之矛盾</b>——若曇無竭已是德行圓滿的說法導師，為何仍需七年入定方出？此問將辯證焦點從弟子（薩陀波崙）轉向導師本身的說法節奏與教學考量。</td></tr><tr><td class="bh99p4-src">答曰：先已答：好世人壽長，雖七歲不以為久。又曇無竭宮殿、婇女、微妙五欲與天相似；薩陀波崙等新發意者，心未柔軟，疑曇無竭雖說空法、讚歎離欲，謂其心未能捨。是故七歲三昧，欲以除眾疑故，生貴敬心。聞曇無竭七歲三昧，心、口相應能說、能行，則信受其語，易可得度。譬如癰瘡未熟，醫則不破，但以藥塗令熟，熟則易破。</td><td>答：前面已經回答過了：太平盛世的人壽命長久，雖然七年也不算長久。而且曇無竭菩薩的宮殿、宮女、微妙的五欲享受，都與天界相似；薩陀波崙等剛發心不久的人，心志還不夠柔軟調順，可能會懷疑曇無竭雖然口說空法、讚歎遠離欲望，但心中恐怕還未能真正捨離（五欲享受）。因此，曇無竭以七年入於三昧禪定，正是想要藉此消除大眾的疑惑，讓大家生起尊貴恭敬之心。當大家聽聞曇無竭七年安住三昧，便知道他的內心與言語是相應一致的——說得到就做得到——於是就會信受他的教說，也就容易被度化了。這就好比瘡瘍還沒有成熟的時候，醫師是不會去把它切開的，只會先用藥膏塗抹使它成熟，等到成熟了才容易破開。</td><td class="bh99p4-guan"><b>七歲入定為除疑生信之方便</b>——曇無竭七年入定並非炫示神通，而是以行證言的教學設計：新發意菩薩易因「說空而未能捨」的表相矛盾生疑，唯有以長時安住三昧證明言行相應，方能生起貴敬信受之心。「癰瘡未熟」喻進一步說明教化眾生需待因緣成熟，不可強求速成，此即善巧方便契理契機之理。</td></tr><tr><td class="bh99p4-src">問曰：薩陀波崙云何得知過七歲已，曇無竭當出？</td><td>問：薩陀波崙菩薩是怎麼知道七年已經過去了，曇無竭菩薩就會出定呢？</td><td class="bh99p4-guan"><b>知見來源之問</b>——此問追究薩陀波崙如何確知七年期滿之訊息的來源，是對前述誓願是否有依據的合理追問。</td></tr><tr><td class="bh99p4-src">答曰：有人言：先曾七歲展轉聞知。有人言：曇無竭初入三昧時，自說七歲為限。如釋迦文尼佛告阿難：「我欲一月、二月入禪定。」阿難以告四眾。薩陀波崙深愛佛法、敬重曇無竭故，供養莊嚴說法處。出家菩薩但莊嚴其心，詣師受法；在家菩薩則莊嚴說法處，華香供養。</td><td>答：有人說：薩陀波崙先前是輾轉聽聞得知七年之期的。也有人說：曇無竭菩薩最初入於三昧的時候，就自己說明是以七年為期限。這就好比釋迦牟尼佛曾告訴阿難：「我想要一個月、兩個月的時間入於禪定。」阿難便將此事告知四眾弟子。薩陀波崙菩薩因為深深愛慕佛法、敬重曇無竭菩薩的緣故，便去供養莊嚴說法之處。出家菩薩只需要莊嚴自己的心，前往老師處領受正法；在家菩薩則要莊嚴說法的場所，以香花等物供養。</td><td class="bh99p4-guan"><b>知期而後莊嚴顯敬法之心</b>——無論七年之期是輾轉聽聞或曇無竭自陳，重點不在資訊來源的考證，而在薩陀波崙得知後立即付諸「莊嚴說法處」的具體行動；末句區分出家、在家菩薩不同的莊嚴方式，說明恭敬求法之心可依各自身分因緣，以不同形式如實體現。</td></tr><tr><td class="bh99p4-src">問曰：魔何以隱蔽水源？</td><td>問：惡魔波旬為什麼要把水源隱藏起來呢？</td><td class="bh99p4-guan"><b>逆緣現前之問</b>——此問承接魔王隱蔽水源的敘事情節，探問惡魔行為背後的動機，是「淨穢矛盾」辯證中魔擾情節的義理起點。</td></tr><tr><td class="bh99p4-src">答曰：魔作是念：「若薩陀波崙求水不得，其心則劣，志願不滿故。又令自鄙其身，我薄福德故，為供養法，求水不得，以自輕憂愁覆心故。」福德不增、智慧不照不明者，諸憂愁煩惱覆心故，諸福德、智慧不能照明；譬如日障蔽故，其照不明。魔知其心大，不可沮壞，但小沮壞，令其稽留。</td><td>答：惡魔是這樣想的：「如果薩陀波崙菩薩求水而得不到，他的心志就會變得低劣，因為他的願望沒有能夠滿足的緣故。又能夠使他自己輕視鄙薄自身，心想我是因為福德淺薄的緣故，想要供養正法卻連水都求不到，因而以自我輕視的憂愁覆蓋內心的緣故。」凡是福德不能增長、智慧不能照了明白的人，都是因為種種憂愁煩惱覆蓋內心的緣故，使得福德、智慧無法顯發光明；就好比太陽被雲層遮蔽障礙的緣故，它的光照就無法明亮。然而惡魔也知道薩陀波崙的心志廣大，是不可能被真正沮喪破壞的，只能造成一點小小的阻撓，讓他的求法之路稍微遲延罷了。</td><td class="bh99p4-guan"><b>魔擾實為心念之鏡</b>——惡魔隱水的真正目標不在物質層面的水，而在瓦解求法者的心志，令其生起「自鄙」「憂愁」等負面心念以覆蔽福慧；然而魔亦自知薩陀波崙「心大不可沮壞」，僅能小擾而不能根本破壞，反顯示外在逆緣的效力終究取決於內心是否動搖，呼應「心淨則土淨」的中觀立場。</td></tr><tr><td class="bh99p4-src">問曰：刺血灑地之合理性？</td><td>問：（薩陀波崙菩薩）以刀刺身、用血灑地的做法，合理性何在呢？</td><td class="bh99p4-guan"><b>血供合理性之問</b>——此問直探「刺血灑地」這一激烈供養行為是否合乎情理，是「淨穢矛盾」辯證中最尖銳的一問，承前「本體論悖論」以來對身體、供養、清淨等議題的深化。</td></tr><tr><td class="bh99p4-src">答曰：有人言：「多有諸天龍、鬼神等常隨逐薩陀波崙，佐助守護，是故所出之血變為香水。如羼提仙人被割截時，血化為乳。」又以無量福德成就故，隨願即成。</td><td>答：有人說：「有許多天龍、鬼神等眾常常隨侍跟隨著薩陀波崙菩薩，在旁輔助守護他，所以他所流出的鮮血才會轉變成為香水。就如同羼提仙人被歌利王割截肢體的時候，流出的血也化為了乳汁一般。」另外也有人說，這是因為他成就了無量的福德，所以只要一發願，願望便能隨即成就。</td><td class="bh99p4-guan"><b>血化香水顯福德不可思議</b>——血灑地而化為香水，並非否定「不淨」之相，而是以福德因緣之力轉化不淨為淨；引羼提仙人血化為乳的先例相互印證，說明清淨與否終究不在外相本身，而在因中所積聚的無量福德與願力，此即「心淨則物淨」之中觀轉化義。</td></tr></tbody></table><p class="bh99p4-note">本表為卷九十九第四品論主（龍樹菩薩）環繞行儀矛盾‧時空矛盾‧說法矛盾‧淨穢矛盾四重辯證之問答原文‧白話‧中觀三欄逐段對照，共16段（8組問答）。本品原始頁面之經文原典敘事段落（諸佛無來無去五重譬喻、以身屬師供養、七歲入定經行、刺血灑地等）與第一至三品已收錄全文逐一核對後確認完全重疊，依鐵律核實剔除，不重複收錄；僅取本品獨有之論主問答內容。白話忠於原意、不增不減。　中觀關鍵詞：隨世諦方便　法無定相　心力勝身力　除疑生信　魔擾為心念之鏡</p></div></div>
+<script id="wy-bh99p4-js">(function(){
+var CH=document.querySelectorAll("section.chapter");
+var BTN=document.getElementById("bh99p4Btn"),BOX=document.getElementById("bh99p4Box"),MODAL=document.getElementById("bh99p4Modal");
+if(!CH.length||!BTN||!BOX||!MODAL)return;
+var TARGET=3;
+var CBOX=document.getElementById("c99p4Box");
+function place(){
+  var b=null;
+  if(CBOX){var st=getComputedStyle(CBOX);var r=CBOX.getBoundingClientRect();if(st.position==="fixed"&&r.height>0&&st.display!=="none")b=Math.round(window.innerHeight-r.top)+8;}
+  if(b===null){var eb=document.querySelector(".wy-ebox");if(eb){var er=eb.getBoundingClientRect();if(er.height>4)b=Math.round(window.innerHeight-er.top)+8;}}
+  if(b===null)b=150;
+  BOX.style.bottom=b+"px"; /*BHPLACE*/
+}
+function curIdx(){var lim=window.innerHeight*0.35,idx=-1;for(var i=0;i<CH.length;i++){if(CH[i].getBoundingClientRect().top<lim)idx=i;}return idx;}
+function upd(){place();BOX.classList.toggle("show",curIdx()===TARGET);}
+var tk=false;function onS(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;upd();});}}
+window.addEventListener("scroll",onS,{passive:true});window.addEventListener("resize",onS);
+BTN.addEventListener("click",function(){MODAL.classList.add("open");});
+MODAL.addEventListener("click",function(e){if(e.target===MODAL||e.target.id==="bh99p4Close")MODAL.classList.remove("open");});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")MODAL.classList.remove("open");});
+upd();var c=0,iv=setInterval(function(){upd();if(++c>40)clearInterval(iv);},250);
+})();</script>
+<!--WY-BH99P4:END-->
 </body>
 </html>
