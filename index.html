@@ -1988,5 +1988,20 @@ else document.addEventListener("DOMContentLoaded",function(){setTimeout(refresh,
 })();</script>
 <!--WY-BHAUIX:END-->
 
+<!--WY-BHALLGO:BEGIN-->
+<script>(function(){
+if(window.__wyBhallGo)return;window.__wyBhallGo=1;
+function go(){
+  if(location.hash!=="#bhall")return;
+  var n=0,iv=setInterval(function(){
+    var b=document.getElementById("bhaOpen");
+    if(b){clearInterval(iv);try{b.click();}catch(e){}}
+    else if(++n>50){clearInterval(iv);}
+  },300);
+}
+if(document.readyState!=="loading")go();else document.addEventListener("DOMContentLoaded",go);
+window.addEventListener("hashchange",go);
+})();</script>
+<!--WY-BHALLGO:END-->
 </body>
 </html>
