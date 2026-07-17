@@ -1711,5 +1711,61 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 var c=0,iv=setInterval(function(){build();if(++c>40)clearInterval(iv);},250);
 })();</script>
 <!--WY-C99TOCBH:END-->
+<!--WY-FABDOCK:BEGIN-->
+<style id="wy-fabdock-css">/* fabdock-v1 */
+#wyDock{position:fixed;right:18px;bottom:86px;z-index:8985;display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-family:"Noto Sans TC",sans-serif;}
+#wyDockTray{display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-height:min(62vh,560px);overflow-y:auto;overflow-x:visible;padding:4px 2px;scrollbar-width:thin;}
+#wyDock.wy-closed #wyDockTray{display:none;}
+#wyDockBtn{width:48px;height:48px;border-radius:50%;cursor:pointer;border:1px solid rgba(217,184,124,.65);background:radial-gradient(circle at 32% 28%,#4a3c2c,#2a2118 72%);color:#e8c886;font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.28);transition:transform .18s;user-select:none;}
+#wyDockBtn:hover{transform:scale(1.07);}
+#wyDock:not(.wy-closed) #wyDockBtn{background:#8b5e3c;color:#fff8e6;}
+#wyDockTray [class*="-fabbox"],#wyDockTray .bha-fab,#wyDockTray .float-yt,#wyDockTray .wy-video-fab,#wyDockTray .wy-fab-wrap,#wyDockTray .wy-egbox{position:static!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;margin:0!important;}
+@media (max-width:760px){#wyDock{right:12px;bottom:78px;}#wyDockBtn{width:44px;height:44px;font-size:17px;}}
+</style>
+<script id="wy-fabdock-js">(function(){
+if(window.__wyFabDock)return;window.__wyFabDock=1;
+var K="wyDockOpen";
+function g(){try{return localStorage.getItem(K)||"0";}catch(e){return "0";}}
+function st(v){try{localStorage.setItem(K,v);}catch(e){}}
+var SEL='[class*="-fabbox"],.bha-fab,.float-yt,.wy-video-fab,.wy-fab-wrap,.wy-egbox';
+function ensure(){
+  var d=document.getElementById("wyDock");
+  if(!d){
+    d=document.createElement("div");d.id="wyDock";
+    d.innerHTML='<div id="wyDockTray"></div><div id="wyDockBtn" title="本品工具：點開陳列，再點收納">☰</div>';
+    document.body.appendChild(d);
+    var btn=d.querySelector("#wyDockBtn");
+    btn.addEventListener("click",function(){
+      var closed=d.classList.toggle("wy-closed");
+      btn.textContent=closed?"☰":"✕";
+      st(closed?"0":"1");
+    });
+    if(g()==="1"){d.classList.remove("wy-closed");btn.textContent="✕";}
+    else{d.classList.add("wy-closed");btn.textContent="☰";}
+  }
+  return d;
+}
+function adopt(){
+  var d=ensure(),tray=d.querySelector("#wyDockTray"),n=0;
+  var els=document.querySelectorAll(SEL);
+  for(var i=0;i<els.length;i++){
+    var el=els[i];
+    if(el.closest("#wyDock"))continue;
+    var par=el.parentElement;
+    if(par&&par!==document.body&&par.closest&&par.closest(SEL))continue; /* 巢狀只收外層 */
+    if(!el.closest("body"))continue;
+    /* 只收「頁面層級」的固定鈕：位於 body 直下或非彈窗內 */
+    if(el.closest('[id$="Modal"]')||el.closest('[class*="modal"]'))continue;
+    tray.appendChild(el);n++;
+  }
+  var has=tray.children.length>0;
+  d.style.display=has?"flex":"none";
+  return n;
+}
+function boot(){adopt();setTimeout(adopt,700);setTimeout(adopt,1800);setTimeout(adopt,3600);}
+if(document.readyState!=="loading")setTimeout(boot,300);
+else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,300);});
+})();</script>
+<!--WY-FABDOCK:END-->
 </body>
 </html>
