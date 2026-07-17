@@ -1870,5 +1870,52 @@ if(document.readyState!=="loading")setTimeout(boot,300);
 else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,300);});
 })();</script>
 <!--WY-FABDOCK:END-->
+<!--WY-TOCDOCK:BEGIN-->
+<style id="wy-tocdock-css">/* tocdock-v1 */
+.wyTocAct{position:absolute;right:12px;bottom:10px;z-index:4;}
+.wyTocAct,[class*="toc-card"] [class$="-actions"]{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;justify-content:flex-end!important;}
+.wyTocAct>*,[class*="toc-card"] [class$="-actions"]>*{position:static!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;margin:0!important;}
+</style>
+<script id="wy-tocdock-js">(function(){
+if(window.__wyTocDock)return;window.__wyTocDock=1;
+var PILL='.toc-bh,.wy-toc-tbl,[class$="-tbl"],.toc-video,.toc-yt,.toc-vid';
+function inPill(el){var q=el.parentElement;while(q&&q!==document.body){if(q.matches&&q.matches(PILL))return true;q=q.parentElement;}return false;}
+function normalize(){
+  var els=document.querySelectorAll(PILL);
+  for(var i=0;i<els.length;i++){
+    var el=els[i];
+    if(el.closest("#wyDock"))continue;
+    if(el.closest('[id$="Modal"]')||el.closest('[class*="modal"]'))continue;
+    if(inPill(el))continue;
+    var card=el.closest('[class*="toc-card"]');
+    var host=card||el.parentElement;
+    if(!host||host===document.body)continue;
+    if(!card){ /* 非卡內（67 兄弟型）：僅在同格存在品卡時才處理 */
+      if(!(host.querySelector&&host.querySelector('a[class*="toc-card"],div[class*="toc-card"]')))continue;
+    }
+    var cont=host.querySelector('.wyTocAct,[class$="-actions"]');
+    if(!cont){
+      cont=document.createElement("div");cont.className="wyTocAct";
+      try{if(getComputedStyle(host).position==="static")host.style.position="relative";}catch(e){}
+      host.appendChild(cont);
+    }
+    if(el.parentElement!==cont)cont.appendChild(el);
+  }
+  /* 統一排序：白話｜總表｜影音 */
+  var conts=document.querySelectorAll('.wyTocAct,[class*="toc-card"] [class$="-actions"]');
+  for(var j=0;j<conts.length;j++){
+    var c=conts[j];
+    var bh=c.querySelector(".toc-bh");if(bh&&c.firstElementChild!==bh)c.insertBefore(bh,c.firstElementChild);
+    var vs=c.querySelectorAll(".toc-video,.toc-yt,.toc-vid");
+    for(var k=0;k<vs.length;k++)c.appendChild(vs[k]);
+  }
+}
+var _n=0;
+function tick(){normalize();if(++_n<24)setTimeout(tick,900);}
+function boot(){normalize();setTimeout(tick,700);}
+if(document.readyState!=="loading")setTimeout(boot,250);
+else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,250);});
+})();</script>
+<!--WY-TOCDOCK:END-->
 </body>
 </html>
