@@ -1957,17 +1957,18 @@ window.addEventListener("hashchange",go);
 })();</script>
 <!--WY-BHALLGO:END-->
 <!--WY-TOCDOCK:BEGIN-->
-<style id="wy-tocdock-css">/* tocdock-v2 */
+<style id="wy-tocdock-css">/* tocdock-v3 */
 .wyTocAct{position:absolute;right:12px;bottom:10px;z-index:4;}
 .wyTocAct,[class*="toc-card"] [class$="-actions"]{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;justify-content:flex-end!important;}
 .wyTocAct>*,[class*="toc-card"] [class$="-actions"]>*{position:static!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;margin:0!important;}
-/* v2：卡外兄弟型容器（如卷100 .toc-actions）改隨文流靜態一列，杜絕壓字與互疊 */
-.wyTocActS{position:static!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;justify-content:flex-end!important;margin:8px 0 0!important;z-index:auto!important;}
+/* v3：卡外兄弟型容器（卷100/64 家族）＝絕對定位釘於格子右下（不入 flex 列、不搶寬）；
+   壓字由 JS 對品卡補 padding-bottom 預留；host 無定位者由 JS 補 relative */
+.wyTocActS{position:absolute!important;right:12px!important;bottom:10px!important;left:auto!important;top:auto!important;z-index:4!important;display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important;justify-content:flex-end!important;margin:0!important;}
 .wyTocActS>*{position:static!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;margin:0!important;}
 </style>
 <script id="wy-tocdock-js">(function(){
 if(window.__wyTocDock)return;window.__wyTocDock=1;
-var PILL='.toc-bh,.wy-toc-tbl,[class$="-tbl"],.toc-video,.toc-yt,.toc-vid';
+var PILL='.toc-bh,.wy-toc-tbl,[class$="-tbl"],.toc-video,.toc-yt,.toc-vid,.yt-cap';
 function inPill(el){var q=el.parentElement;while(q&&q!==document.body){if(q.matches&&q.matches(PILL))return true;q=q.parentElement;}return false;}
 function normalize(){
   var els=document.querySelectorAll(PILL);
@@ -1988,8 +1989,14 @@ function normalize(){
       try{if(getComputedStyle(host).position==="static")host.style.position="relative";}catch(e){}
       host.appendChild(cont);
     }
-    /* v2：頁面自帶的卡外兄弟型容器 → 掛 wyTocActS 改隨文流（v1 自建 .wyTocAct 與卡內容器不動） */
-    if(!cont.classList.contains("wyTocAct")&&!(cont.closest&&cont.closest('[class*="toc-card"]')))cont.classList.add("wyTocActS");
+    /* v3：卡外兄弟型容器 → 掛 wyTocActS（絕對定位右下）＋host 補定位錨＋品卡補底部預留（防壓字） */
+    if(!cont.classList.contains("wyTocAct")&&!(cont.closest&&cont.closest('[class*="toc-card"]'))){
+      cont.classList.add("wyTocActS");
+      try{if(getComputedStyle(host).position==="static")host.style.position="relative";}catch(e){}
+      try{var cd=host.querySelector('a[class*="toc-card"],div[class*="toc-card"]');
+        if(cd&&!cd.__wyPad){cd.__wyPad=1;
+          cd.style.paddingBottom=((parseFloat(getComputedStyle(cd).paddingBottom)||0)+38)+"px";}}catch(e){}
+    }
     if(el.parentElement!==cont)cont.appendChild(el);
   }
   /* 統一排序：白話｜總表｜影音 */
@@ -1997,7 +2004,7 @@ function normalize(){
   for(var j=0;j<conts.length;j++){
     var c=conts[j];
     var bh=c.querySelector(".toc-bh");if(bh&&c.firstElementChild!==bh)c.insertBefore(bh,c.firstElementChild);
-    var vs=c.querySelectorAll(".toc-video,.toc-yt,.toc-vid");
+    var vs=c.querySelectorAll(".toc-video,.toc-yt,.toc-vid,.yt-cap");
     for(var k=0;k<vs.length;k++)c.appendChild(vs[k]);
   }
 }
