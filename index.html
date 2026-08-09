@@ -2386,6 +2386,17 @@ function frontier(){for(var i=0;i<R.length;i++){if(!passed(R[i]))return R[i];}re
 function unlocked(v){for(var i=0;i<R.length;i++){if(R[i]===v)return true;if(!passed(R[i]))return false;}return true;}
 function url(v){return "https://weiwen0925.github.io/dazhidulun-"+v+"/";}
 function done(){var n=0;for(var i=0;i<R.length;i++)if(passed(R[i]))n++;return n;}
+var dzqMoved=false;
+["wheel","touchstart","keydown"].forEach(function(ev){document.addEventListener(ev,function(){dzqMoved=true;},{passive:true});});
+function goDoor(){var d=document.getElementById("eqDoor");if(!d)return;dzqMoved=false;
+ var last=-1,same=0,n=0;
+ (function step(){if(dzqMoved)return;
+  var y=Math.max(0,window.scrollY+d.getBoundingClientRect().top-90);
+  window.scrollTo({top:y,behavior:n?"auto":"smooth"});
+  var ny=Math.round(y);if(Math.abs(ny-last)<4)same++;else same=0;
+  last=ny;n++;
+  if(same<3&&n<30)setTimeout(step,450);
+ })();}
 function paint(){
  document.body.classList.toggle("dzq-on",isOn());
  var tg=document.getElementById("dzqTog");
@@ -2407,7 +2418,7 @@ document.addEventListener("click",function(e){
  if(t.closest("#dzqGoBtn")){e.preventDefault();ss("dzEQOn");document.getElementById("dzqIntro").classList.remove("on");
   var f=frontier();paint();
   if(f&&f!==V&&!unlocked(V)){location.href=url(f);}
-  else{var d=document.getElementById("eqDoor");if(d)d.scrollIntoView({behavior:"smooth",block:"center"});}
+  else{goDoor();}
   return;}
  if(t.closest("#dzqCancel")){e.preventDefault();document.getElementById("dzqIntro").classList.remove("on");return;}
  if(t.closest("#dzqOff")){e.preventDefault();try{localStorage.removeItem("dzEQOn");}catch(x){}paint();return;}
@@ -2416,9 +2427,9 @@ document.addEventListener("click",function(e){
  if(nx){e.preventDefault();window.location.assign(nx.getAttribute("href"));return;}
  var lg=t.closest("#dzqLock .dzq-go");
  if(lg){e.preventDefault();window.location.assign(lg.getAttribute("href"));return;}
- if(t.closest("#dzqToast")){e.preventDefault();var dd=document.getElementById("eqDoor");
-  if(dd)dd.scrollIntoView({behavior:"smooth",block:"center"});
-  var tt=document.getElementById("dzqToast");if(tt)tt.remove();return;}
+ if(t.closest("#dzqToast")){e.preventDefault();
+  var tt=document.getElementById("dzqToast");if(tt)tt.remove();
+  goDoor();return;}
  var sk=t.closest(".eq-skip");
  if(sk){e.preventDefault();ss("dzEQSkip:"+V);paint();return;}
  var op=t.closest(".eq-opt");
