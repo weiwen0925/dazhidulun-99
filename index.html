@@ -2359,6 +2359,8 @@ body:not(.dzq-on) #eqDoor{display:none;}
 .eq.open .eq-skip{display:none;}
 .eq-res{color:#7a5c1e;font-size:.9rem;}
 #dzqTog{position:fixed;right:16px;bottom:112px;z-index:9500;background:#3d2e1b;color:#f0dfb6;border:1px solid #c9a353;border-radius:999px;padding:10px 18px;font-size:14px;letter-spacing:1.5px;text-decoration:none;box-shadow:0 4px 14px rgba(60,40,15,.4);cursor:pointer;font-family:"Noto Serif TC",serif;}
+#dzqToast{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:9550;background:#3d2e1b;color:#f0dfb6;border:1px solid #c9a353;border-radius:999px;padding:10px 22px;font-size:14px;letter-spacing:1px;font-family:"Noto Serif TC",serif;box-shadow:0 4px 14px rgba(0,0,0,.45);cursor:pointer;transition:opacity .6s;white-space:nowrap;max-width:94vw;overflow:hidden;text-overflow:ellipsis;}
+#dzqToast a{color:#ffe9b8;text-decoration:none;border-bottom:1px dashed #c9a353;margin-left:8px;}
 #dzqLock,#dzqIntro{display:none;position:fixed;inset:0;z-index:9600;background:rgba(24,18,10,.82);align-items:center;justify-content:center;padding:20px;}
 #dzqLock.on,#dzqIntro.on{display:flex;}
 .dzq-card{max-width:560px;background:#fbf7ee;border:2px solid #b08d4f;border-radius:14px;padding:26px 28px;font-family:"Noto Serif TC",serif;color:#5a4a30;line-height:2;font-size:15px;}
@@ -2374,7 +2376,7 @@ body:not(.dzq-on) #eqDoor{display:none;}
 <div id="dzqIntro"><div class="dzq-card"><span class="k">東 行 求 法 · 百 卷 長 征</span><p>本站預設<b>自由閱讀</b>——闖關是可隨時開關的挑戰。開啟後，依門頁「五階段次第讀法」串成<b>三十二站東行之路</b>：綱領三站（卷1→18→31）、六度長廊（卷11–17）、道品佛德（卷19–28）、略本節點（卷32–90）、薩陀波崙公案（卷96–99）——終站<b>卷100 囑累品，東行圓成</b>。</p><p><b>規則三條</b>。一、每站卷末一道石門，<b>十題單選</b>，答對亮金顯解析、答錯亮紅可重試，十題全中門開。二、前站未過，後站只見鎖牌。三、開過的門記在這台裝置上；趕路者每道門都有「逕行過門」暗門。</p><div class="dzq-btns"><a class="dzq-go" id="dzqGoBtn" href="#">⚔ 開始東行 ▸</a><a class="dzq-x" id="dzqCancel" href="#">先不闖關</a></div></div></div>
 <div id="dzqLock"><div class="dzq-card"><span class="k">⚿ 石 門 未 啟</span><p>東行連環，一站一門——本站之門尚未輪到。先到目前的關卡敲門，石門會依序升起。</p><div class="dzq-btns"><a class="dzq-go" href="#">前往目前關卡 ▸</a><a class="dzq-sub" id="dzqSkipHere" href="#">逕行至本站（沿路各門視同開門）</a><a class="dzq-x" id="dzqOff" href="#">關閉闖關 · 回自由閱讀</a></div></div></div>
 <script id="wy-dzq-js">(function(){try{
-var R=[1,18,31,11,12,13,14,15,16,17,19,20,21,22,24,25,26,27,28,32,35,46,47,49,53,73,90,96,97,98,99,100],V=99;
+var R=[1,18,31,11,12,13,14,15,16,17,19,20,21,22,24,25,26,27,28,32,35,46,47,49,53,73,90,96,97,98,99,100],V=99,I=31;
 function gs(k){try{return localStorage.getItem(k)==="1";}catch(e){return false;}}
 function ss(k){try{localStorage.setItem(k,"1");}catch(e){}}
 function un(k){try{localStorage.removeItem(k);}catch(e){}}
@@ -2410,6 +2412,13 @@ document.addEventListener("click",function(e){
  if(t.closest("#dzqCancel")){e.preventDefault();document.getElementById("dzqIntro").classList.remove("on");return;}
  if(t.closest("#dzqOff")){e.preventDefault();try{localStorage.removeItem("dzEQOn");}catch(x){}paint();return;}
  if(t.closest("#dzqSkipHere")){e.preventDefault();skipTo();return;}
+ var nx=t.closest(".eq-next");
+ if(nx){e.preventDefault();window.location.assign(nx.getAttribute("href"));return;}
+ var lg=t.closest("#dzqLock .dzq-go");
+ if(lg){e.preventDefault();window.location.assign(lg.getAttribute("href"));return;}
+ if(t.closest("#dzqToast")){e.preventDefault();var dd=document.getElementById("eqDoor");
+  if(dd)dd.scrollIntoView({behavior:"smooth",block:"center"});
+  var tt=document.getElementById("dzqToast");if(tt)tt.remove();return;}
  var sk=t.closest(".eq-skip");
  if(sk){e.preventDefault();ss("dzEQSkip:"+V);paint();return;}
  var op=t.closest(".eq-opt");
@@ -2423,9 +2432,17 @@ document.addEventListener("click",function(e){
   }else{op.classList.add("no");}
   return;}
 },true);
+function toast(){
+if(!isOn()||passed(V)||!unlocked(V))return;
+if(document.getElementById("dzqToast"))return;
+var t=document.createElement("div");t.id="dzqToast";
+t.innerHTML="\u2694 \u6771\u884c\u7b2c"+I+"\u7ad9 \u00b7 \u5377"+V+"\u2014\u2014\u8b80\u7562\u81f3\u5377\u672b\u6572\u9580<a href=\"#eqDoor\">\u76f4\u9054\u77f3\u9580 \u25b8</a>";
+document.body.appendChild(t);
+setTimeout(function(){var x=document.getElementById("dzqToast");if(x){x.style.opacity="0";setTimeout(function(){if(x.parentNode)x.remove();},700);}},8000);
+}
 function boot(){
  if(!document.getElementById("dzqTog")){var b=document.createElement("a");b.id="dzqTog";b.href="#";document.body.appendChild(b);}
- paint();}
+ paint();toast();}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
 }catch(e){}})();</script>
 <!--/WY-DZQ-->
