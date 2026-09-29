@@ -365,19 +365,43 @@ window.addEventListener('scroll',updateProgress,{passive:true});updateProgress()
 var ts=[].slice.call(document.querySelectorAll('.site-footer,[data-wy-notice="v2"]'));if(!ts.length)return;
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){setHide(es.some(function(e){return e.isIntersecting;}));},{rootMargin:'0px 0px -20px 0px',threshold:0.01});ts.forEach(function(t){io.observe(t);});}})();
 // iframe 自動高度
-function resizeFrame(f){try{var d=f.contentDocument||f.contentWindow.document;if(!d||!d.body)return;
-d.body.style.minHeight='0';d.body.style.height='auto';if(d.documentElement){d.documentElement.style.minHeight='0';d.documentElement.style.height='auto';}
-var h=d.body.scrollHeight;if(h>100){f.style.height=h+'px';f.style.minHeight='0';}}catch(e){}}
+function resizeFrame(f){ /* wy-rz v2：只在高度真的變了才寫，避免反覆強制重排 */
+ try{
+  var d=f.contentDocument||f.contentWindow.document;
+  if(!d||!d.body)return;
+  if(f.__wyDoc!==d){f.__wyDoc=d; f.__wyH=0; f.__wyN=0; d.body.style.minHeight='0'; d.body.style.height='auto';
+   if(d.documentElement){d.documentElement.style.minHeight='0';d.documentElement.style.height='auto';}}
+  var h=d.body.scrollHeight;
+  /* 內文若含 vh 單位會隨框高回饋、越量越高：同一份內文最多改 30 次（與舊版輪詢次數相同） */
+  if(h>100&&h!==f.__wyH&&(f.__wyN=(f.__wyN||0)+1)<=30){ var rc=f.getBoundingClientRect(), dh=h-rc.height;
+   f.__wyH=h;f.style.height=h+'px';f.style.minHeight='0';
+   /* 視窗上方的品框長高時，同步下移捲動位置，畫面不跳 */
+   if(dh&&(rc.bottom<=0||(f.__wyPh&&rc.top<0)))window.scrollBy(0,dh);
+   f.__wyPh=0; }
+ }catch(e){}
+}
 function resizeAllFrames(){document.querySelectorAll('iframe.ch-frame').forEach(resizeFrame);if(typeof updateProgress==='function')updateProgress();}
-function setupFrame(f){var tries=0;function tick(){tries++;resizeFrame(f);if(tries<30)setTimeout(tick,200);}
-if(f.contentDocument&&f.contentDocument.readyState==='complete'){tick();}else{f.addEventListener('load',tick);}}
+function setupFrame(f){ /* wy-rz v2：ResizeObserver 取代 30×200ms 輪詢 */
+ function go(){
+  resizeFrame(f);
+  try{
+   var d=f.contentDocument;
+   if(window.ResizeObserver&&d&&d.body&&f.__wyROdoc!==d){f.__wyROdoc=d; var q=0;
+    new ResizeObserver(function(){if(q)return;q=requestAnimationFrame(function(){q=0;resizeFrame(f);});}).observe(d.body);}
+   if(d&&d.fonts&&d.fonts.ready)d.fonts.ready.then(function(){resizeFrame(f);});
+  }catch(e){}
+  [500,2000,5000].forEach(function(ms){setTimeout(function(){resizeFrame(f);},ms);});
+ }
+ f.addEventListener('load',go);
+ go();
+}
 document.querySelectorAll('iframe.ch-frame').forEach(setupFrame);
 var rzT;window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(resizeAllFrames,200);});
 // 錨點防錯跳
 document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.toc-video'))return;var a=e.target;while(a&&a.tagName!=='A')a=a.parentElement;if(!a)return;
 var h=a.getAttribute('href');if(!h||h.charAt(0)!=='#'||h.length<2)return;var id=h.substring(1);var el=document.getElementById(id);if(!el)return;
 e.preventDefault();resizeAllFrames();setTimeout(function(){resizeAllFrames();var rect=el.getBoundingClientRect();var y=window.scrollY+rect.top-20;window.scrollTo({top:y,behavior:'smooth'});},60);},true);
-var _rt=0,_riv=setInterval(function(){_rt++;resizeAllFrames();if(_rt>50)clearInterval(_riv);},300);
+var _rt=0,_riv=setInterval(function(){_rt++;resizeAllFrames();if(_rt>5)clearInterval(_riv);},2000);
 // 跨 iframe 深連結 #chapter-品-章-節
 function wyGoto(hash){
   if(!hash)return;var m=hash.replace(/^#/,'');var p=m.split('-');
@@ -444,6 +468,26 @@ document.addEventListener('keydown',function(e){var k=e.key;if(e.ctrlKey&&(k==='
   }, true);
 })();
 </script>
+<script id="wy-fontgate">/* wy-lazy v2 */
+/* 字型閘：品框內文先用系統字排版，等 Noto 各字重（含所需字集）全部載妥後一次切換——
+   否則每到一片字型就整頁重排一次（一品約 80 片，每次約 0.2 秒）。內容與版式不變，只是切換時機不同。 */
+window.__wyFontGate=function(h){ if(typeof h!=='string'||h.indexOf('wy-fg-js')>=0||h.indexOf('fonts.googleapis.com')<0) return h;
+ var G='<style id="wy-fg-css">html.wy-fg *{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei","Noto Sans CJK TC",sans-serif!important}</style>'
+  +'<script id="wy-fg-js">(function(){var h=document.documentElement;h.classList.add("wy-fg");var done=false;function off(){if(done)return;done=true;h.classList.remove("wy-fg");}'
+  +'function ld(){var ps=[],txt="";try{txt=(document.body&&document.body.textContent||"").slice(0,60000);}catch(e){}'
+  +'[["Noto Serif TC",[400,600,700,900]],["Noto Sans TC",[300,400,500,700]]].forEach(function(w){w[1].forEach(function(wt){try{ps.push(document.fonts.load(wt+\' 1em "\'+w[0]+\'"\',txt));}catch(e){}});});'
+  +'Promise.all(ps).then(off,off);}'
+  +'var n=0;function go(){if(!document.fonts||!document.fonts.load){off();return;}var has=false;try{document.fonts.forEach(function(f){if(/Noto/.test(f.family))has=true;});}catch(e){}'
+  +'if(has||n++>40)ld();else setTimeout(go,100);}'
+  +'setTimeout(off,9000);if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();})();<\/script>';
+ var m=/<head[^>]*>/i.exec(h); return m?(h.slice(0,m.index+m[0].length)+G+h.slice(m.index+m[0].length)):(G+h); };
+</script>
+<script id="wy-lazydec-hash">/* wy-lazy v2：品框內深連結（#chapter-品-章-節）先把目標品解開，WY-GOTO 才找得到節錨點 */
+(function(){function num(){var m=/^#[A-Za-z]+-(\d+)/.exec(location.hash||'');return m?parseInt(m[1],10):0;}
+function go(){var k=num();if(!k)return;var sec=document.getElementById('chapter-'+k)||document.getElementById('ch-'+k);if(!sec)return;
+ if(sec.querySelector&&sec.querySelector('iframe.ch-frame[data-c],iframe.ch-frame[data-wy-l1]')&&window.__wyMountSec)window.__wyMountSec(sec);}
+var t=0;function w(){if(window.__wyMountSec){go();return;}if(++t<150)setTimeout(w,200);}
+window.addEventListener('hashchange',go);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',w);else w();})();</script>
 <script id="wy-decoder">
 (function(){
   if(!window.__wyReady) return;
@@ -476,7 +520,7 @@ document.addEventListener('keydown',function(e){var k=e.key;if(e.ctrlKey&&(k==='
         if(a.name === "data-c" || a.name === "srcdoc") continue;
         try{ newF.setAttribute(a.name, a.value); }catch(e){}
       }
-      newF.setAttribute("srcdoc", decoded);
+      newF.setAttribute("srcdoc",window.__wyFontGate(decoded));
       try{ oldF.parentNode.replaceChild(newF, oldF); }catch(e){ return null; }
       if(typeof window.setupFrame === "function"){
         try{ window.setupFrame(newF); }catch(e){}
